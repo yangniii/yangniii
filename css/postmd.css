@@ -1,0 +1,115 @@
+
+.post-md h1 {
+    font-size:30px;
+    font-weight: 600;
+    line-height: 72px;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    border-bottom: 1px solid #eef1f3;
+}
+
+
+/* introduction多文档展示块 */
+.int {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+    border-left: 4px solid #e4e7eb;
+}
+.int .cont-int {
+        background: #f9f9f9;
+        border-radius: 2px;
+        border-bottom: 1px solid var(--border-regular);
+}
+.int .int-cardstyle {
+        position: relative;
+        width: 100%;
+        padding: 8px 0 0 12px;
+        color: #333;
+        text-align: left;
+}
+.int .int-cardstyle .int-desc {
+    padding: 0 16px 0 0;
+}
+.int-desc a {
+    color: var(--brand-color);
+    box-shadow: none;
+}
+.int-desc a:hover {
+    color: var(--brand-color);
+    box-shadow: none;
+}
+.int-desc .document-attachment {
+    display: inline-block;
+    font-size: 14px;
+}
+.int .int-cardstyle .int-desc .multi-document {
+    display: flex;
+    flex-direction: row;
+} 
+.int .int-cardstyle .divide-line {
+    color: var(--border-regular);
+    margin-right: 8px;
+}
+.int .int-cardstyle .int-title {
+    color: var(--text-primary);
+    margin: 4px 0 0 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+@media screen and (max-width: 600px) {
+.int-cardstyle .int-title{
+    font-size: 14px;
+    }
+}
+.int .int-cardstyle p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.03rem;
+    line-height: 24px;
+}
+
+/* introduction文档展示简化 */
+.int-sp {
+    color: var(--text-tertiary);
+    border-left: 4px solid #e4e7eb;
+    padding: 12px 12px;
+    margin: 15px 0;
+    background-color: #f9f9f9;
+}
+.int-sp p {
+    font-size: 14px;
+    margin: 4px 0;
+}
+/* .int-sp p :last-child {
+    margin: 0;
+} */
+
+/* 文章前后切换 */
+.post-main>footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 0;
+    border-top: solid 1px #eee;
+}
+.post-main>footer .arrow {
+    border-radius: 3px;
+    color: #5694f1;
+    background: #F0F8FF;
+    padding: 4px;
+    margin: 6px 3px 0 0;
+}
+.post-main>footer .link {
+    font-size: var(--font-size-regular);
+    line-height: 22px;
+    max-width: 50%;
+    text-overflow: clip;
+}
+@media screen and (max-width: 600px) {
+    .post-main footer {
+        padding:10px 0;
+    }
+}
