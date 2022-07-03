@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    <link rel="alternate icon" type="image/ico" href="/images/favicon.ico">
  
 
     <title>
@@ -13,13 +14,16 @@
 
     <!-- CSS引用 -->
     
+<link rel="stylesheet" href="/css/colors.css">
+
+    
 <link rel="stylesheet" href="/css/reset.css">
 
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/nav.css">
 
     
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/home.css">
 
     
 <link rel="stylesheet" href="/css/postmd.css">
@@ -35,10 +39,10 @@
 
 
 
-    <!-- Symbol引用iconfont -->
+    <!-- 引用iconfont Symbol -->
     <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
 
-    
+    <!-- 代码高亮引用 -->
     
 <link rel="stylesheet" href="/css/a11y-dark.min.css">
 
@@ -55,19 +59,29 @@
     </script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
+    
     <body>
+
+        
+            <div class="post-header">
+    <div class="post-back">
+        <a class="go-home" href="javascript:history.back(-1)">
+            <svg width="8" height="14" viewBox="0 0 8 14">
+                <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="logo" href="/"><img  src="/images/logo.svg"></a>
+    </div>
+</div>
+        
+             
         <div class="paper">
             <div class="paper-main">
-                
-                    <div class="post-header">
-    <a class="logo" href="/">YANNGIKI</a>
-    <a class="go-home" href="/">
-        <svg width="8" height="14" viewBox="0 0 8 14">
-            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </a>
-</div>
-                
+
+
+
+               
+                    
                 <div class="post-main">
 
     <div class="mini_toc">
@@ -125,9 +139,9 @@
 
     triggle[0].addEventListener('click', toc_icn_state, false);
 
-    // >1280px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
     function toc_show(){
-        if((document.body.clientWidth+15) > 1279) {
+        if((document.body.clientWidth+15) > 1179) {
             toc.style.display = "block";
             key = true;
             for(let i=0; i < line.length; i++){
@@ -148,7 +162,7 @@
 </li>
 <li><p><strong>目标人群：</strong>前台收银员、店铺经理、手艺人(包括个人营业的)</p>
 </li>
-<li><p><strong>适配平台/环境：</strong>Web开发适配 iOS、Android、微信H5</p>
+<li><p><strong>适配平台&#x2F;环境：</strong>Web开发适配 iOS、Android、微信H5</p>
 </li>
 </ul>
 <h1 id="产品价值"><a href="#产品价值" class="headerlink" title="产品价值"></a>产品价值</h1><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mobile-cashier/interest.png" alt="interest"></p>
@@ -173,10 +187,7 @@
 <p><strong>4、减少培训成本</strong></p>
 <p>通过流程和交互优化，减少对商家使用产品的教学培训</p>
 <h1 id="用户分析"><a href="#用户分析" class="headerlink" title="用户分析"></a>用户分析</h1><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mobile-cashier/userpicture.png" alt="用户画像"></p>
-<section style="margin-top: 16px">🌁 体验地图：[点击查看](https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mobile-cashier/uxmp_cashier.svg)</section>
-
-
-
+<p>🌁 体验地图: <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mobile-cashier/uxmp_cashier.svg">点击查看</a></p>
 <h1 id="问题-amp-优化"><a href="#问题-amp-优化" class="headerlink" title="问题&amp;优化"></a>问题&amp;优化</h1><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mobile-cashier/problems.png" alt="旧版问题"></p>
 <p>原来的版本上线后，有上面几大方面的问题，最终导致的结果的移动收银的<strong>口碑差</strong>、<strong>使用率低</strong>，对购买服务的商家和我们平台来说都是一种损失。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mobile-cashier/enhanceWay.png" alt="优化方向"></p>
@@ -210,9 +221,9 @@
 <p><strong>开单流程单线程</strong></p>
 <p>同一会员，在执行每一项功能（开卡、充值等）操作前，都要返回到收银主页输入一次手机号或会员卡号进行会员搜索，增加了交互步长，而且繁琐。具体体现有下面两点：</p>
 <ul>
-<li><p>同一个会员在开单（服务/商品）时，无法直接给顾客充值或开卡，极大影响操作的便捷性。</p>
+<li><p>同一个会员在开单（服务&#x2F;商品）时，无法直接给顾客充值或开卡，极大影响操作的便捷性。</p>
 </li>
-<li><p>同一个会员在充值或开卡之后，也无法直接进行开单（服务/商品），必须要重新回到收银主页，重新输入手机号才能继续开单。</p>
+<li><p>同一个会员在充值或开卡之后，也无法直接进行开单（服务&#x2F;商品），必须要重新回到收银主页，重新输入手机号才能继续开单。</p>
 </li>
 <li><p>整个开单过程步骤多，经常会迷失，不知道[我在哪里]、[我能到哪里去]。</p>
 </li>
@@ -484,6 +495,7 @@
     </footer>
 
 </div>
+
             </div>
         </div>
     </body>

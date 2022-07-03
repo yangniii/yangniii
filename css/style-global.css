@@ -1,12 +1,4 @@
-@import './colors.css';
 
-
-body {
-    font-family: "Helvetica", -apple-system, "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
-    /* word-wrap: break-word; */
-    /* word-break: break-all; */
-    /* Georgia, Cambria, "Times New Roman", charter, */
-  }
 
 /* iconfont 图标基础样式 */
 .icon {
@@ -90,20 +82,3 @@ body {
     border-radius: 3px;
     letter-spacing: 0.03rem;
   }
-
-  /* 辅助标题 - 图片 */
-.caption-image {
-  font-size: 15px;
-  color: #8c8c8c;
-  text-align: center;
-  margin: -16px 0 20px 0;
-  line-height: 22px;
-}
-
-.desc-page-bottom {
-  font-size: 14px;
-  color:#AFAFAF;
-  text-align:center;
-  margin: 0 auto;
-  line-height: 22px;
-}

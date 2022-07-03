@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    <link rel="alternate icon" type="image/ico" href="/images/favicon.ico">
  
 
     <title>
@@ -13,13 +14,16 @@
 
     <!-- CSS引用 -->
     
+<link rel="stylesheet" href="/css/colors.css">
+
+    
 <link rel="stylesheet" href="/css/reset.css">
 
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/nav.css">
 
     
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/home.css">
 
     
 <link rel="stylesheet" href="/css/postmd.css">
@@ -35,10 +39,10 @@
 
 
 
-    <!-- Symbol引用iconfont -->
+    <!-- 引用iconfont Symbol -->
     <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
 
-    
+    <!-- 代码高亮引用 -->
     
 <link rel="stylesheet" href="/css/a11y-dark.min.css">
 
@@ -55,19 +59,29 @@
     </script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
+    
     <body>
+
+        
+            <div class="post-header">
+    <div class="post-back">
+        <a class="go-home" href="javascript:history.back(-1)">
+            <svg width="8" height="14" viewBox="0 0 8 14">
+                <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="logo" href="/"><img  src="/images/logo.svg"></a>
+    </div>
+</div>
+        
+             
         <div class="paper">
             <div class="paper-main">
-                
-                    <div class="post-header">
-    <a class="logo" href="/">YANNGIKI</a>
-    <a class="go-home" href="/">
-        <svg width="8" height="14" viewBox="0 0 8 14">
-            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </a>
-</div>
-                
+
+
+
+               
+                    
                 <div class="post-main">
 
     <div class="mini_toc">
@@ -125,9 +139,9 @@
 
     triggle[0].addEventListener('click', toc_icn_state, false);
 
-    // >1280px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
     function toc_show(){
-        if((document.body.clientWidth+15) > 1279) {
+        if((document.body.clientWidth+15) > 1179) {
             toc.style.display = "block";
             key = true;
             for(let i=0; i < line.length; i++){
@@ -239,11 +253,11 @@
 </thead>
 <tbody><tr>
 <td align="left">#262626</td>
-<td align="left">正文文字 / 重要标题 / 组件文字 / 按钮颜色 / 背景颜色 /</td>
+<td align="left">正文文字 &#x2F; 重要标题 &#x2F; 组件文字 &#x2F; 按钮颜色 &#x2F; 背景颜色 &#x2F;</td>
 </tr>
 <tr>
 <td align="left">#F4F4F6</td>
-<td align="left">背景颜色 / 分隔线 / hover颜色 /</td>
+<td align="left">背景颜色 &#x2F; 分隔线 &#x2F; hover颜色 &#x2F;</td>
 </tr>
 <tr>
 <td align="left">……</td>
@@ -364,6 +378,9 @@
 <p>在界面设计中，有一些已经相当普适化的基本状态（参考下面的表格）。</p>
 <p><code>Normal</code>  <code>Disabled</code>  <code>Hover</code>  <code>Focus</code>  <code>Selected</code>  <code>Activated</code>  <code>Pressed</code>  <code>Dragged</code>  这几个基本状态，一般应用在按钮、输入框、下拉菜单等组件上面，并不是所有组件都会有这些状态，对于不同组件的状态一般都可以单独设计。</p>
 <p>关于状态远不止这些，还有很多涉及到业务流程上的状态变化，它们对应到界面设计上也会有状态变化，比如订单流程从下单到成功交易或取消交易，订单是有不同的状态流转，通常这部分是最容易被设计忽略。</p>
+
+<div class="table-container">
+
 <table>
 <thead>
 <tr>
@@ -404,6 +421,11 @@
 <td align="center"><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/Modes/States/Dragged.png" height="202px"></td>
 </tr>
 </tbody></table>
+
+</div>
+
+
+
 <p>下图是定义了通用的Hover、Disabled的状态所关联到的描边和背景填充颜色。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/Modes/States.png" alt="States"></p>
 <section style="font-size:15px;color:#8c8c8c;text-align:center;">部分通用状态</section>
@@ -436,6 +458,7 @@
     </footer>
 
 </div>
+
             </div>
         </div>
     </body>

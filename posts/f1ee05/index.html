@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    <link rel="alternate icon" type="image/ico" href="/images/favicon.ico">
  
 
     <title>
@@ -13,13 +14,16 @@
 
     <!-- CSS引用 -->
     
+<link rel="stylesheet" href="/css/colors.css">
+
+    
 <link rel="stylesheet" href="/css/reset.css">
 
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/nav.css">
 
     
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/home.css">
 
     
 <link rel="stylesheet" href="/css/postmd.css">
@@ -35,10 +39,10 @@
 
 
 
-    <!-- Symbol引用iconfont -->
+    <!-- 引用iconfont Symbol -->
     <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
 
-    
+    <!-- 代码高亮引用 -->
     
 <link rel="stylesheet" href="/css/a11y-dark.min.css">
 
@@ -55,19 +59,29 @@
     </script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
+    
     <body>
+
+        
+            <div class="post-header">
+    <div class="post-back">
+        <a class="go-home" href="javascript:history.back(-1)">
+            <svg width="8" height="14" viewBox="0 0 8 14">
+                <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="logo" href="/"><img  src="/images/logo.svg"></a>
+    </div>
+</div>
+        
+             
         <div class="paper">
             <div class="paper-main">
-                
-                    <div class="post-header">
-    <a class="logo" href="/">YANNGIKI</a>
-    <a class="go-home" href="/">
-        <svg width="8" height="14" viewBox="0 0 8 14">
-            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </a>
-</div>
-                
+
+
+
+               
+                    
                 <div class="post-main">
 
     <div class="mini_toc">
@@ -125,9 +139,9 @@
 
     triggle[0].addEventListener('click', toc_icn_state, false);
 
-    // >1280px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
     function toc_show(){
-        if((document.body.clientWidth+15) > 1279) {
+        if((document.body.clientWidth+15) > 1179) {
             toc.style.display = "block";
             key = true;
             for(let i=0; i < line.length; i++){
@@ -213,6 +227,9 @@
 
 <p><strong>投影</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mmfbook/shadow_level.png" alt="shadow_level"></p>
+
+<div class="table-container">
+
 <table>
 <thead>
 <tr>
@@ -227,7 +244,7 @@
 </thead>
 <tbody><tr>
 <td>Level1</td>
-<td>Gray-08 = #2C2C2B</td>
+<td>Gray-08 &#x3D; #2C2C2B</td>
 <td align="center">0.1</td>
 <td align="center">0</td>
 <td align="center">1</td>
@@ -236,7 +253,7 @@
 </tr>
 <tr>
 <td>Level2</td>
-<td>Gray-08 = #2C2C2B</td>
+<td>Gray-08 &#x3D; #2C2C2B</td>
 <td align="center">0.1</td>
 <td align="center">0</td>
 <td align="center">4</td>
@@ -245,7 +262,7 @@
 </tr>
 <tr>
 <td>Level3</td>
-<td>Gray-08 = #2C2C2B</td>
+<td>Gray-08 &#x3D; #2C2C2B</td>
 <td align="center">0.2</td>
 <td align="center">0</td>
 <td align="center">12</td>
@@ -253,6 +270,9 @@
 <td align="center">0</td>
 </tr>
 </tbody></table>
+
+</div>
+
 <p>为了更好的营造出界面上的层感，以 <code>gray-08(#2C2C2B)</code>为基准颜色，通过调整Y、Blur、Alpha等参数设定了3个层级的投影，分别使用于工具栏或导航栏、卡片、弹窗等地方。</p>
 <h1 id="字体排版"><a href="#字体排版" class="headerlink" title="字体排版"></a>字体排版</h1><p>在UI界面上，字体排版是关于怎样组织和传达信息，包括几个关键因素：字族、字重、字号、行高、字距。</p>
 <p>为了快速建立一个统一的排版系统，在这几个关键因素上做了规范约束。</p>
@@ -270,7 +290,7 @@
 <p><strong>字号 &amp; 行高</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/mmfbook/font_hierarchy.png" alt="font_hierarchy"></p>
 <p>由于英文字体普遍都比中文字体小一号，MMFBook的字号从13开始，也能保证信息的可读性，更为清晰（中文最小的会使用12，原生应用的还可使用更小比如11、10）。</p>
-<p>不同的字号需要定义对应的行高以保证字体排版的空间感和易读性，这里的英文行高/字号的比例范围在1.2 ~ 1.4之间。再结合<a href="#%E9%97%B4%E8%B7%9D">间距</a>所定义的Spacing共同设计信息与信息之间的亲疏关系和制造留白空间。</p>
+<p>不同的字号需要定义对应的行高以保证字体排版的空间感和易读性，这里的英文行高&#x2F;字号的比例范围在1.2 ~ 1.4之间。再结合<a href="#%E9%97%B4%E8%B7%9D">间距</a>所定义的Spacing共同设计信息与信息之间的亲疏关系和制造留白空间。</p>
 </br>
 
 <p><strong>字距</strong></p>
@@ -381,6 +401,7 @@
     </footer>
 
 </div>
+
             </div>
         </div>
     </body>

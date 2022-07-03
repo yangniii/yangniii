@@ -10,16 +10,20 @@
     margin-bottom: 32px;
     display: none;
     background-color:rgba(255,255,255,0.96);
-    font-size:0.8em;
+    font-size:0.8rem;
     color:#afafaf;
     border-left: 1px solid #f0f0f0;
     overflow: scroll;
 }
+
 #toc a {
-      color: var(--font-color-toc);
-    }
+    color: var(--font-color-toc);
+}
+#toc a:hover {
+    color: var(--text-secondary);
+}
     
-    /* 设置toc的List的style */
+/* 设置toc的List的style */
 #toc ol>li {
     padding: 0 0 8px 0px;
     list-style-type: decimal;
@@ -31,7 +35,7 @@
     padding: 0px;
     margin-left: 12px;
     list-style-type: none;
-    }
+}
  #toc ol>li::before {
     content: none;
 }
@@ -43,23 +47,23 @@
       width: 100%;
       height: 100%;
       left: 0px;
-      top: 0px;
+      top: 60px;
       bottom: 0px;
     }
 }
-@media screen and (min-width: 601px) and (max-width: 1279px) {
+@media screen and (min-width: 601px) and (max-width: 1179px) {
     #toc{
     right: 0px;
     top: 60px;
     height: 100%;
     bottom: 0px;
-    box-shadow: -10px 4px 6px -10px rgba(38,38,38,0.12);
+    box-shadow: -10px 4px 6px -10px rgba(38,38,38,0.08);
     }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     #toc{
     display: block; 
-}
+  }
 }
 
 
@@ -75,7 +79,7 @@
 }
 
 
-/* toc内自动生成的盒子 */
+/* toc盒子 */
 .toc {
   margin: 10px 0 40px 6px;
 }
@@ -84,12 +88,12 @@
 /* 目录面包屑 */
 .mini_toc {
   display: block;
-  z-index: 101;
+  z-index: 1000;
   width: 36px;
   height: 36px;
    /* border-radius: 100%; */
-  /* border: 1px solid #f0f0f0; */
-  background-color: #16202b;
+  border: 1px solid #f0f0f0;
+  background-color: var(--white-color);
   text-align: center; 
   position: fixed;
   right:-1px;
@@ -97,7 +101,7 @@
   cursor: pointer;
   box-shadow: 0 2px 8px -3px rgba(0,0,0,0.2);
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .mini_toc{
     display: none;
   }
@@ -113,7 +117,7 @@
 .toc_icn span{
     position: absolute;
     display: block;
-    background-color: #FFFFFF;
+    background-color: var(--text-tertiary);
     height: 2px;
     width: 14px;
     transition: all .25s ease-in-out;

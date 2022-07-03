@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-    <link rel="alternate icon" type="image/png" href="/img/favicon.png">
+    <link rel="alternate icon" type="image/ico" href="/images/favicon.ico">
  
 
     <title>
@@ -13,13 +14,16 @@
 
     <!-- CSS引用 -->
     
+<link rel="stylesheet" href="/css/colors.css">
+
+    
 <link rel="stylesheet" href="/css/reset.css">
 
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/nav.css">
 
     
-<link rel="stylesheet" href="/css/markdown.css">
+<link rel="stylesheet" href="/css/home.css">
 
     
 <link rel="stylesheet" href="/css/postmd.css">
@@ -35,10 +39,10 @@
 
 
 
-    <!-- Symbol引用iconfont -->
+    <!-- 引用iconfont Symbol -->
     <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
 
-    
+    <!-- 代码高亮引用 -->
     
 <link rel="stylesheet" href="/css/a11y-dark.min.css">
 
@@ -55,19 +59,29 @@
     </script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
+    
     <body>
+
+        
+            <div class="post-header">
+    <div class="post-back">
+        <a class="go-home" href="javascript:history.back(-1)">
+            <svg width="8" height="14" viewBox="0 0 8 14">
+                <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <a class="logo" href="/"><img  src="/images/logo.svg"></a>
+    </div>
+</div>
+        
+             
         <div class="paper">
             <div class="paper-main">
-                
-                    <div class="post-header">
-    <a class="logo" href="/">YANNGIKI</a>
-    <a class="go-home" href="/">
-        <svg width="8" height="14" viewBox="0 0 8 14">
-            <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </a>
-</div>
-                
+
+
+
+               
+                    
                 <div class="post-main">
 
     <div class="mini_toc">
@@ -125,9 +139,9 @@
 
     triggle[0].addEventListener('click', toc_icn_state, false);
 
-    // >1280px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
     function toc_show(){
-        if((document.body.clientWidth+15) > 1279) {
+        if((document.body.clientWidth+15) > 1179) {
             toc.style.display = "block";
             key = true;
             for(let i=0; i < line.length; i++){
@@ -253,7 +267,7 @@
 <ul>
 <li>需求临时变更、漂浮不定导致的；</li>
 <li>缺少相关经验，考虑不到位，比如某个功能的在使用场景上比较局限，或者没有考虑到与现有业务有关联，以及技术实现难度等问题；</li>
-<li>协作流程上的问题，比如prd/原型文档不详细，交互细节、流程没写清楚，对接人员甚至整个团队在需求理解上产生偏移；</li>
+<li>协作流程上的问题，比如prd&#x2F;原型文档不详细，交互细节、流程没写清楚，对接人员甚至整个团队在需求理解上产生偏移；</li>
 <li>沟通不顺畅、信息不透明、信息传达不到位或滞后；</li>
 <li>……</li>
 </ul>
@@ -303,6 +317,7 @@
     </footer>
 
 </div>
+
             </div>
         </div>
     </body>

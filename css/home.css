@@ -1,17 +1,5 @@
 @charset "utf-8";
 
-:root
-{
-    --font-color-0: #04077e;
-    --font-color-1: #000;
-    --font-color-2: #666;
-    --font-color-3: #aaa;
-    --font-color-toc: #81808b;
-    --bg-color-1: #eee;
-    --line-1: #ccc;
-    --line-2: #ddd;
-    --font-size-regular: 0.9375rem;
-}
 
 p
 {
@@ -25,7 +13,6 @@ body
     line-height: 1.75;
     letter-spacing: 0.6px;
     color: var(--font-color-2);
-    /* background: #111; */
 }
 
 a
@@ -46,99 +33,10 @@ a:hover {
 {
     max-width: 880px;
     margin: 0 auto;
-    padding: 72px 8vw 24px;
+    padding: 120px 8vw 24px;
     background: #fff;
     border-radius: 24px;
     background: #fff;
-}
-
-.header
-{
-    padding-bottom: 48px;
-    margin-bottom: 48px;
-    border-bottom: 1px solid var(--border-tertiary);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: center;
-}
-.logo
-{
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--font-color-1);
-    margin-bottom: 16px;
-    flex: 0 0 100%;
-}
-.nav
-{
-    margin: 0 0 4px;
-    flex: 0 0 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: center;
-}
-.nav li
-{
-    padding: 2px 0;
-    margin-right: 24px;
-}
-.nav li:last-of-type
-{
-    margin-right: 0;
-}
-.nav li a
-{
-    color: var(--font-color-1);
-    opacity: .6;
-    transition: opacity ease-in-out .5s;
-}
-.nav li a:hover
-{
-    opacity: 1;
-    transition: opacity ease-in-out .5s;
-}
-
-.post-header
-{
-    margin-bottom: 48px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: center;
-}
-.post-header .logo
-{
-    font-size: 1rem;
-}
-.post-header .go-home
-{
-    display: block;
-    padding: 10px 20px 8px;
-    border-radius: 12px;
-    background: #fff;
-    border: 1px solid #eee;
-    margin: 8px 0;
-    transition: background ease-in-out .5s;
-}
-.post-header .go-home:hover
-{
-    background: var(--bg-color-1);
-    transition: background ease-in-out .5s;
-}
-.post-header .go-home svg
-{
-    transform: translateX(0);
-    transition: transform ease-in-out .5s;
-}
-.post-header .go-home:hover svg
-{
-    transform: translateX(-4px);
-    transition: transform ease-in-out .5s;
 }
 
 .post-list
@@ -158,18 +56,35 @@ a:hover {
     margin-bottom: 48px;
     border-bottom: 1px dashed var(--line-2);
 }
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 680px) {
     .post { 
-        display: flex;
+        align-items: flex-end;
+    }
+}
+@media screen and (max-width:440px) {
+    .post {
         flex-direction: column-reverse;
     }
-} */
+}
 
 .post-imgwrap {
     width: 160px;
-    height: 120px;
+    height: 100%;
+    aspect-ratio: auto 4/3;
     margin-left: 24px;
     cursor: pointer;
+}
+@media screen and (max-width:440px) {
+    .post-imgwrap {
+        width: 100%;
+        margin: 0 0 24px;
+    } 
+}
+@media screen and (min-width: 441px) and (max-width: 680px) {
+    .post-imgwrap {
+        width: 100px;
+        margin-bottom: 36px;
+    } 
 }
 
 .post-imgwrap img {
@@ -212,6 +127,12 @@ a:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: justify;
+    line-height: 24px;
+}
+@media screen and (max-width:580px) {
+    .post-except {
+        font-size: 0.875rem;
+    }
 }
 .read-more
 {
@@ -277,7 +198,7 @@ a:hover {
 }
 .paginator a
 {
-    margin: 4px 12px;
+    margin: 4px 4px;
     color: var(--font-color-2);
     transition: color ease-in-out .5s;
 }
@@ -320,31 +241,6 @@ a:hover {
     transition: color ease-in-out .5s;
 } */
 
-.post-main
-{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 24px;
-}
-.post-main-title
-{
-    flex: 0 0 100%;
-    margin-bottom: 12px;
-    font-size: 1.6rem;
-    font-weight: 600;
-    line-height: 1.5;
-    color: var(--font-color-1);
-}
-.post-meta
-{
-    font-size: 0.875rem;
-    color: var(--font-color-3);
-    flex: 0 0 100%;
-    margin-bottom: 32px;
-}
 
 .archive
 {
