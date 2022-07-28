@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <link rel="alternate icon" type="image/ico" href="/images/favicon.ico">
+ 
+
+    <title>
+         A New Post ·  
+        YANNGIKI
+    </title>
+
+    <!-- CSS引用 -->
+    
+<link rel="stylesheet" href="/css/colors.css">
+
+    
+<link rel="stylesheet" href="/css/reset.css">
+
+    
+<link rel="stylesheet" href="/css/nav.css">
+
+    
+<link rel="stylesheet" href="/css/home.css">
+
+    
+<link rel="stylesheet" href="/css/postmd.css">
+
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<link rel="stylesheet" href="/css/about.css">
+
+    
+<link rel="stylesheet" href="/css/toc.css">
+
+
+
+    <!-- 引用iconfont Symbol -->
+    <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
+
+    <!-- 代码高亮引用 -->
+    
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/highlightjs-line-numbers.js"></script>
+ 
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        
+            <div class="post-header">
+    <div class="post-back">
+        <a class="go-home local-trkey" href="">
+            <svg width="8" height="14" viewBox="0 0 8 14">
+                <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <!-- <a class="logo" href="/"><img  src="/images/logo.svg"></a> -->
+    </div>
+</div>
+        
+        <div class="paper">
+            <div class="paper-main">   
+                <script>
+  let postBack = document.getElementsByClassName('local-trkey')[0];
+  window.onload = function () {
+    postBack.href =  localStorage.getItem('trkey');
+    console.log ("lastURL:" + postBack.href)
+  }
+</script>
+
+<div class="post-main">
+
+    <div class="mini_toc">
+        <div class="toc_icn">
+          <span></span>
+          <span></span> 
+          <span></span>
+          <span></span>
+        </div>
+    </div> 
+
+    
+        <div class="post-main-title">
+            A New Post
+        </div>
+        <div class="post-meta">
+            2022-07-02
+        </div>
+    
+    
+    
+
+
+    <div id="toc">
+      
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    
+    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1219) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+
+    window.addEventListener('resize', toc_show, false)
+
+ </script>
+    <div class="post-md">
+        <p>A New Post templates_eg1</p>
+
+    </div>
+
+    <footer class="f-cf">
+        
+          <a href="/posts/4a17b156/" class="link f-fl">
+            <span class="arrow"> ←</span>
+            Hello World
+          </a>
+        
+        
+          <a href="/posts/24f58410/" class="link f-fr">
+            嘉佳智能
+            <span class="arrow"> → </span>
+          </a>
+        
+    </footer>
+</div>
+            </div>
+        </div>
+    </body>
+</html>

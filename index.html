@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
@@ -42,26 +41,9 @@
     <!-- 引用iconfont Symbol -->
     <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
 
-    <!-- 代码高亮引用 -->
-    
-<link rel="stylesheet" href="/css/a11y-dark.min.css">
-
-    
-<script src="/js/highlight.min.js"></script>
-
-    
-<script src="/js/highlightjs-line-numbers.js"></script>
- 
-
-    <script>
-        hljs.initHighlightingOnLoad();
-        hljs.initLineNumbersOnLoad();
-    </script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
-    
     <body>
-
         
             <nav id="nav">
     <div class="nav-content">
@@ -88,14 +70,8 @@
 </nav>
 
         
-             
         <div class="paper">
-            <div class="paper-main">
-
-
-
-               
-                    
+            <div class="paper-main">   
                 <div class="post-list">
     
     
@@ -236,7 +212,52 @@ MMF Book是一款给用户提供在线预约服务的 App，针对北美市场�
 </div>
 
 
+<script>
+
+    let postTitle = document.getElementsByClassName('post-title');
+    let postIMG = document.getElementsByClassName('post-imgwrap');
+    let postBack = document.getElementsByClassName('local-trkey')[0];
+
+    //把当前页面的URL存放到localstorage
+    function getlastURL() {
+        var lastURL = window.location.href;
+        localStorage.setItem ('trkey', lastURL);
+        console.log (lastURL)
+    }
+
+    //监听文章列表的可点击元素，并执行函数
+    for( i= 0; i < postTitle.length; i++ ) {
+        postTitle[i].addEventListener ('click', getlastURL, false);
+    }
+
+    for( i= 0; i < postIMG.length; i++ ) {
+        postIMG[i].addEventListener ('click', getlastURL, false)
+    }
+
+    //在目标页面加载时，把localstorage的值赋给目标对象（该段放在目标页面 post.ejs 上执行）
+    // window.onload = function () {
+    //     postBack.href =  localStorage.getItem('trkey');
+    //     console.log ("lastURL:" + postBack.href)
+    // }
+    
+</script>
             </div>
         </div>
     </body>
+    
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+
+<script src="/js/highlightjs-line-numbers.js"></script>
+ 
+
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+
 </html>

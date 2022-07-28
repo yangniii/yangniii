@@ -1,18 +1,17 @@
 @charset "utf-8";
 
-
-p
-{
-    word-wrap: break-word;
-    white-space: pre-wrap;
-}
-
 body
 {
     font-size: 16px;
     line-height: 1.75;
     letter-spacing: 0.6px;
     color: var(--font-color-2);
+}
+
+p
+{
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 a
@@ -31,7 +30,7 @@ a:hover {
 }
 .paper-main
 {
-    max-width: 880px;
+    max-width: 848px;
     margin: 0 auto;
     padding: 120px 8vw 24px;
     background: #fff;

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
@@ -42,47 +41,32 @@
     <!-- 引用iconfont Symbol -->
     <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
 
-    <!-- 代码高亮引用 -->
-    
-<link rel="stylesheet" href="/css/a11y-dark.min.css">
-
-    
-<script src="/js/highlight.min.js"></script>
-
-    
-<script src="/js/highlightjs-line-numbers.js"></script>
- 
-
-    <script>
-        hljs.initHighlightingOnLoad();
-        hljs.initLineNumbersOnLoad();
-    </script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
-    
     <body>
-
         
             <div class="post-header">
     <div class="post-back">
-        <a class="go-home" href="javascript:history.back(-1)">
+        <a class="go-home local-trkey" href="">
             <svg width="8" height="14" viewBox="0 0 8 14">
                 <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </a>
-        <a class="logo" href="/"><img  src="/images/logo.svg"></a>
+        <!-- <a class="logo" href="/"><img  src="/images/logo.svg"></a> -->
     </div>
 </div>
         
-             
         <div class="paper">
-            <div class="paper-main">
+            <div class="paper-main">   
+                <script>
+  let postBack = document.getElementsByClassName('local-trkey')[0];
+  window.onload = function () {
+    postBack.href =  localStorage.getItem('trkey');
+    console.log ("lastURL:" + postBack.href)
+  }
+</script>
 
-
-
-               
-                    
-                <div class="post-main">
+<div class="post-main">
 
     <div class="mini_toc">
         <div class="toc_icn">
@@ -106,7 +90,7 @@
 
 
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol></li></ol>
     </div>
 
 
@@ -141,7 +125,7 @@
 
     // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
     function toc_show(){
-        if((document.body.clientWidth+15) > 1179) {
+        if((document.body.clientWidth+15) > 1219) {
             toc.style.display = "block";
             key = true;
             for(let i=0; i < line.length; i++){
@@ -155,7 +139,7 @@
  </script>
     <div class="post-md">
         <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h1><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -167,6 +151,8 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<section class="desc-page-bottom">📮 到底了</section>
+
 
     </div>
 
@@ -179,10 +165,24 @@
           </a>
         
     </footer>
-
 </div>
-
             </div>
         </div>
     </body>
+    
+
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+
+<script src="/js/highlight.min.js"></script>
+
+
+<script src="/js/highlightjs-line-numbers.js"></script>
+ 
+
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
+
 </html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <link rel="alternate icon" type="image/ico" href="/images/favicon.ico">
+ 
+
+    <title>
+         公众号个性化菜单的模型抽象化和分析 ·  
+        YANNGIKI
+    </title>
+
+    <!-- CSS引用 -->
+    
+<link rel="stylesheet" href="/css/colors.css">
+
+    
+<link rel="stylesheet" href="/css/reset.css">
+
+    
+<link rel="stylesheet" href="/css/nav.css">
+
+    
+<link rel="stylesheet" href="/css/home.css">
+
+    
+<link rel="stylesheet" href="/css/postmd.css">
+
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<link rel="stylesheet" href="/css/about.css">
+
+    
+<link rel="stylesheet" href="/css/toc.css">
+
+
+
+    <!-- 引用iconfont Symbol -->
+    <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
+
+    <!-- 代码高亮引用 -->
+    
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/highlightjs-line-numbers.js"></script>
+ 
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        
+            <div class="post-header">
+    <div class="post-back">
+        <a class="go-home local-trkey" href="">
+            <svg width="8" height="14" viewBox="0 0 8 14">
+                <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <!-- <a class="logo" href="/"><img  src="/images/logo.svg"></a> -->
+    </div>
+</div>
+        
+        <div class="paper">
+            <div class="paper-main">   
+                <script>
+  let postBack = document.getElementsByClassName('local-trkey')[0];
+  window.onload = function () {
+    postBack.href =  localStorage.getItem('trkey');
+    console.log ("lastURL:" + postBack.href)
+  }
+</script>
+
+<div class="post-main">
+
+    <div class="mini_toc">
+        <div class="toc_icn">
+          <span></span>
+          <span></span> 
+          <span></span>
+          <span></span>
+        </div>
+    </div> 
+
+    
+        <div class="post-main-title">
+            公众号个性化菜单的模型抽象化和分析
+        </div>
+        <div class="post-meta">
+            2019-10-18
+        </div>
+    
+    
+    
+
+
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E6%A6%82%E8%BF%B0"><span class="toc-text">背景概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E6%A1%88"><span class="toc-text">方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88A"><span class="toc-text">方案A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88B"><span class="toc-text">方案B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%9B%9E%E5%BD%92"><span class="toc-text">问题回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E5%92%8C%E5%90%AF%E5%8F%91"><span class="toc-text">思考和启发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%8C%96%E5%8A%9F%E8%83%BD%EF%BC%8C%E6%80%BB%E7%BB%93%E8%A7%84%E5%BE%8B%E5%92%8C%E6%A8%A1%E5%BC%8F"><span class="toc-text">抽象化功能，总结规律和模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1"><span class="toc-text">优先业务数据建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E6%8E%A8%E5%92%8C%E9%A2%84%E5%88%A4"><span class="toc-text">演推和预判</span></a></li></ol></li></ol>
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    
+    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1219) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+
+    window.addEventListener('resize', toc_show, false)
+
+ </script>
+    <div class="post-md">
+        <h1 id="背景概述"><a href="#背景概述" class="headerlink" title="背景概述"></a>背景概述</h1><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/personalizedMenu/banner.png" alt="banner"></p>
+<p>微信公众号平台提供了<strong>个性化菜单</strong>的相关接口，第三方开发者可以直接调取使用，可以根据关注者的标签、性别、地区、系统语言等条件自动匹配显示不同的菜单，以达到每种类型的用户在进入公众号时能快速触达与他们相关的菜单。比如我是一位男生用户，显示的菜单与女生用户的会不一样。</p>
+<p>我们的产品Jerry想要在自家产品加上这个功能，在进行UI设计时，发现Jerry提供的原型设计思路（即下面的方案A）在可用性和使用场景上存在一些欠妥的地方，大家双方对个性化菜单上也产生了不一样的理解，于是重新换了种思路设计了方案B再沟通，因为没有实际方案直接说都是瞎扯蛋。</p>
+<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><p>方案A和方案B，是基于对个性化菜单的两种不同的理解模型展开的，虽然在UI设计上可以把影响控制得比较小，但在产品功能的设计思路、后端底层数据存储和处理都是不一样的思路。</p>
+<p>方案A存在好几个问题，也正是这几个问题决定了这个方案不太可能继续往下走，主要是由于功能设计的拓展性差和对实际使用场景考虑的不周到。</p>
+<p>下面通过对两个方案的模型进行分析，我们来看看方案A和方案B的差异和优缺点，方案B除了能满足产品目标，还弥补了方案A的问题。</p>
+<h2 id="方案A"><a href="#方案A" class="headerlink" title="方案A"></a>方案A</h2><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/personalizedMenu/modal1.png" alt="modal1"></p>
+<p><strong>模型：</strong></p>
+<p>个性化菜单，是一项独立的<strong>主菜单</strong>（如图中菜单3、菜单2…所示），匹配替换的时候是以默认菜单为基础，从左起第一项主菜单开始逐项替换。</p>
+<p><strong>替换规则：</strong></p>
+<ol>
+<li><p>把个性化菜单按最近创建时间排序，最新创建的排在最前面；</p>
+</li>
+<li><p>检测个性化中的菜单3的“matchrule”是否与用户的相关属性或标签匹配；</p>
+</li>
+<li><p>如果符合，即把默认菜单中的第一项菜单A替换成菜单3；</p>
+</li>
+<li><p>如果不符合，再检测菜单2的匹配规则是否符合用户，符合即替换，不符合即继续检测下一项，直到成功匹配并替换默认菜单的第一项；</p>
+</li>
+<li><p>默认菜单中的第一项菜单被匹配替换成功后，按照上面的规则继续匹配和替换默认菜单中的第二项菜单；</p>
+</li>
+<li><p>直至把默认菜单的所有项都替换完成，即终止剩余个性化菜单的匹配替换；如果剩余的个性化菜单都与用户不匹配，也终止个性化菜单的匹配替换</p>
+</li>
+</ol>
+<p><strong>存在问题:</strong></p>
+<p>Jerry设计的方案存在下面几项比较严重的漏洞：</p>
+<ol>
+<li>替换顺序每次都必须要遵循从左到右依次替换，这种规则就会容易出现被替换的主菜单并不是用户真实想替换的那一项，这种替换方式并不符合实际场景的使用预期；</li>
+<li>最小替换单元是一项主菜单，公众号的关注用户每次进入都要检测匹配，容易给服务器增加不必要的访问压力；</li>
+<li>个性化菜单无法设定菜单的个数，系统设置的默认菜单有几项主菜单，个性化菜单就有几项</li>
+</ol>
+<p>以上这几点问题可以看出，方案A的个性化菜单其实并不那么个性，离自定义菜单的产品目的还相距甚远。菜单的替换逻辑过于局限且不符合实际的使用场景，比如无法控制个性化菜单上的菜单数量，也无法控制去操作具体替换哪一项菜单。</p>
+<blockquote>
+<p>针对方案A存在问题，重新设计了另一个方案，即下面的方案B</p>
+</blockquote>
+<h2 id="方案B"><a href="#方案B" class="headerlink" title="方案B"></a>方案B</h2><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/personalizedMenu/modal2.png" alt="modal2"></p>
+<p><strong>模型：</strong></p>
+<p>个性化菜单，是一整个<strong>菜单按钮组</strong>（如图中m1、m2、m3…mn所示），每一组个性化菜单里的菜单按钮（如菜单a1）可以设置子菜单，与默认菜单一样。</p>
+<p><strong>替换规则：</strong></p>
+<ol>
+<li><p>把个性化菜单按最近创建时间排序，最新创建的排在最前面，优先匹配；</p>
+</li>
+<li><p>检测第一组个性化菜单中的“matchrule”是否有匹配的用户；</p>
+</li>
+<li><p>如果符合，用m1替换默认菜单，剩余的个性化菜单不再匹配；</p>
+</li>
+<li><p>如果不符合，再检测第二组个性化菜单的匹配规则是否符合用户，符合即替换，不符合即继续检测下一组个性化菜单，直到成功匹配并替换默认菜单；</p>
+</li>
+<li><p>如果剩余的个性化菜单都与用户不匹配，也终止个性化菜单的匹配替换</p>
+</li>
+</ol>
+<p><strong>优势：</strong></p>
+<blockquote>
+<p>方案B的优势完全弥补了方案A中的缺点，在设计思路上也相对较为巧妙。</p>
+</blockquote>
+<ol>
+<li>以一整个菜单组为最小单元进行匹配和替换，在软件设计和处理上可以把个性花菜单看成是带有匹配条件的”默认菜单”，也就是把它们看成菜单按钮组；</li>
+<li>能够避免方案A中局限且不合实际使用场景的替换逻辑，可以完全控制菜单项的数量、内容、和排放顺序，做到真正意义上的个性化。</li>
+</ol>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>为了验证方案B的设计思路是否可行，多次模拟个性化菜单相关的增删操作和设计相关的关键页面，以确保完整可行。</p>
+<p>以及要说服负责这项功能的Jerry，为了进一步确认，也去看了微信公众号平台开发文档的相关内容，从代码示例中即验证了这种猜想。如下面代码片段所示（创建个性化菜单的示例），示例代码中的个性化菜单有两个主菜单：</p>
+<p><strong>▪ 今日歌曲</strong> </p>
+<p><strong>▪ 菜单</strong> 。 下面还有三个子菜单，分别是 <u>搜索</u>、<u>wxa</u>、<u>赞我一下</u>。</p>
+<p>从代码示例中可以看出，个性化菜单与默认菜单的基本模型实际上是一样的，唯一的不同点是每组个性化菜单增加了匹配规则(Matchrule)，符合规则的关注者会显示，不符合的则不显示。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token string-property property">"button"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token string-property property">"type"</span><span class="token operator">:</span> <span class="token string">"click"</span><span class="token punctuation">,</span> 
+        <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"今日歌曲"</span><span class="token punctuation">,</span> 
+        <span class="token string-property property">"key"</span><span class="token operator">:</span> <span class="token string">"V1001_TODAY_MUSIC"</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> 
+    <span class="token punctuation">&#123;</span>
+        <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"菜单"</span><span class="token punctuation">,</span> 
+        <span class="token string-property property">"sub_button"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">&#123;</span>
+                <span class="token string-property property">"type"</span><span class="token operator">:</span> <span class="token string">"view"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"搜索"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"url"</span><span class="token operator">:</span> <span class="token string">"http://www.soso.com/"</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> 
+            <span class="token punctuation">&#123;</span>
+                <span class="token string-property property">"type"</span><span class="token operator">:</span> <span class="token string">"miniprogram"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"wxa"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"url"</span><span class="token operator">:</span> <span class="token string">"http://mp.weixin.qq.com"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"appid"</span><span class="token operator">:</span> <span class="token string">"wx286b93c14bbf93aa"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"pagepath"</span><span class="token operator">:</span> <span class="token string">"pages/lunar/index"</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> 
+            <span class="token punctuation">&#123;</span>
+                <span class="token string-property property">"type"</span><span class="token operator">:</span> <span class="token string">"click"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"name"</span><span class="token operator">:</span> <span class="token string">"赞一下我们"</span><span class="token punctuation">,</span> 
+                <span class="token string-property property">"key"</span><span class="token operator">:</span> <span class="token string">"V1001_GOOD"</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="问题回归"><a href="#问题回归" class="headerlink" title="问题回归"></a>问题回归</h1><blockquote>
+<p>在阅读了官方文档后，为什么Jerry设计的方案会变得不一样，还隐藏着漏洞？</p>
+</blockquote>
+<p><strong>1. 对个性化菜单的模型理解相对较浅</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/personalizedMenu/error_defualtmenu.jpg" alt="error_defualtmenu" style="zoom:100%;" />
+
+<p>把个性化菜单理解成一个主菜单按钮，<strong>一项个性化菜单</strong>  等同时于  <strong>一项菜单按钮</strong>。（上图所示）</p>
+<p>虽然直觉上就是把默认菜单的某一项或几项替换掉，但这种理解还是相对较浅。如果简单地把这种模型理解作为规律直接应用到这项功能的设计上，正如上面分析方案问题所说的，最终方案只会变得局限和不适合。</p>
+<p><strong>2. 缺少对其它使用场景的考虑，没有预判当前方案设计可能会出现的问题</strong></p>
+<p>在设计方案的过程中经常是要在大脑中预演，所谓预演其实就是在大脑中思考还有哪些基本的使用场景，设计这么做会有哪些优缺点，还有没有更好的交互，能不能找到更简单的逻辑去实现同样的功能等等。通过这种方法经常是可以发现更多问题，反逼着换思路重新思考设计。比如个性化菜单能否控制主菜单按钮的数量，如果考虑到了，那方案A基本上在产品原型设计阶段就应该被x掉。</p>
+<p><strong>3. 思维已被锁定住了，跳不出来</strong></p>
+<p>最开始我们的Jerry对个性化菜单有自己的理解，并且已经困在了思维定势的逻辑闭环中，“🤫我不要你觉得，🤓我要我觉得”。然后，方案A里的各种交互操作，特别是匹配规则其实都是基于这种定势思维并且继续演化，只要陷进去，我们大多人都会比较困难看到其中的问题。</p>
+<h1 id="思考和启发"><a href="#思考和启发" class="headerlink" title="思考和启发"></a>思考和启发</h1><p>在产品设计中一不小心都很容易会埋下坑，个性化菜单只是个很小的例子。</p>
+<p>下面是一些自己曾经埋坑的原因：</p>
+<ul>
+<li>需求临时变更、漂浮不定导致的；</li>
+<li>缺少相关经验，考虑不到位，比如某个功能的在使用场景上比较局限，或者没有考虑到与现有业务有关联，以及技术实现难度等问题；</li>
+<li>协作流程上的问题，比如prd&#x2F;原型文档不详细，交互细节、流程没写清楚，对接人员甚至整个团队在需求理解上产生偏移；</li>
+<li>沟通不顺畅、信息不透明、信息传达不到位或滞后；</li>
+<li>……</li>
+</ul>
+<p>即使是有标准的设计流程和研发流程，在软件整个设计过程研发过程中上面这些情况也是会经常发生。<strong>那问题来了:</strong></p>
+<blockquote>
+<p>在设计阶段（产品、交互、UI），怎样避免少一点坑呢？</p>
+</blockquote>
+<h2 id="抽象化功能，总结规律和模式"><a href="#抽象化功能，总结规律和模式" class="headerlink" title="抽象化功能，总结规律和模式"></a>抽象化功能，总结规律和模式</h2><p>思想、概念都是无形的，都是抽象的。实际上，当我们在接受需求信息的时候，我们的大脑已经在开始有意识地组织需求信息，寻找规律，搭建业务结构架和流程模型。如果只是一味地只是接受信息，不做任何的加工处理，信息最后也只是成为一个简单的记忆符号，很难再有更多的价值。</p>
+<p>特别是我们进行功能设计的时候，一边吸收需求，一边把具体的需求抽象化成某些普适的规律和模式，再把它应用到我们的设计中。</p>
+<p>举个例子，偶数 <code>[2, 4, 6] </code>之于数学公式 <code>2n</code>，<code>[2, 4, 6]</code>是很具体的偶数，但<code>2n</code>能代表所有偶数，有着普适的规律和适用性，可以用来求出其它的偶数。这就是抽象化和模型的魅力和好处。</p>
+<p>如果以后再遇到类似的替换覆盖的操作时，是直接在菜单内部单个元素替换还是采取整体替换的方案，这时候就可以想到我们这次个性化菜单的的两种模型。</p>
+<p><strong>抽象化在产品功能设计中的作用：</strong></p>
+<ul>
+<li>能更多地思考顶层业务，主干流程，避免过渡地思考细节，过渡地考虑细节经常带来的问题是主次不分；</li>
+<li>把现象或问题总结成规律和模式，遇到类似的问题可以根据情况适当套用；</li>
+<li>跳出已有的思维模式，切换其它角度看问题，容易寻找创新点和改进点；</li>
+</ul>
+<h2 id="优先业务数据建模"><a href="#优先业务数据建模" class="headerlink" title="优先业务数据建模"></a>优先业务数据建模</h2><p>数据建模是指根据业务特点，总结归纳和设计业务数据对象之间关系的过程。虽然数据建模通常用在数据库设计里，但它实质上也是一个抽象化的过程，所以在产品设计过程中可以把它作为抽象化业务、归纳和设计规则的一种方法。</p>
+<p>在B端的产品设计里，有很多的功能需要业务数据建模，比如账号体系、权限(RBAC相关的模型)，还有上面提到的公众号个性化菜单。在进入产品细节方案设计的时候，我们都会经常忽略基本的业务数据建模，直接着手每个页面的具体功能和交互设计，因为基础的底层数据关系没有梳理清楚，导至最后陷入了痛苦的混乱逻辑当中，我们的方案A就是典行没有做好数据建模。理想的做法是，<strong>先进行业务数据建模，然后再梳理流程和确认页面如何流转，最后才是每个页面的细节设计</strong>。</p>
+<p>做数据建模还有一个好处是<strong>团队成员对业务功能的理解比较容易达成一致共识</strong>。当我们在设计或者描述一个业务功能的时候，不同的人大脑里对它的理解经常会不一样，有时甚至是截然相反的想法。出现这一点的原因是我们每个人大脑对业务功能的解析不一样，通过借助一些建模工具，比如<a target="_blank" rel="noopener" href="https://www.visual-paradigm.com/cn/guide/uml-unified-modeling-language/what-is-uml/">建模语言UML</a>、<a target="_blank" rel="noopener" href="https://www.visual-paradigm.com/cn/guide/data-modeling/what-is-entity-relationship-diagram/">ER图</a>，可以让自己梳理清晰流程、对象的关系和状态。模型是非常客观的，其他人在理解上不会容易出现理解偏移。</p>
+<p>下面两个类图分别是方案A和方案B中默认菜单与个性化菜单之间的关系模型。我们也能通过这些模型去分析方案自身的做给缺点，也有助于其它对接人员比如开发人员查看和理解。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/personalizedMenu/%E6%96%B9%E6%A1%88A.png" alt="方案A"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/personalizedMenu/%E6%96%B9%E6%A1%88B.png" alt="方案B"></p>
+<h2 id="演推和预判"><a href="#演推和预判" class="headerlink" title="演推和预判"></a>演推和预判</h2><p>演推和预判，是自己检验设计方案、发现问题的一种好方法</p>
+<p>使用场景是否能满足</p>
+<p>流程是否完整闭环</p>
+<p>交互是清晰、有效率</p>
+<p>用户在使用的时候可能会发生哪些问题</p>
+</br>
+
+<section class="desc-page-bottom">📮 到底了</section>
+    </div>
+
+    <footer class="f-cf">
+        
+          <a href="/posts/64854923/" class="link f-fl">
+            <span class="arrow"> ←</span>
+            深浅模式设计
+          </a>
+        
+        
+          <a href="/posts/c7c61052/" class="link f-fr">
+            设计之于项目的价值
+            <span class="arrow"> → </span>
+          </a>
+        
+    </footer>
+</div>
+            </div>
+        </div>
+    </body>
+</html>

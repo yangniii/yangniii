@@ -1,3 +1,4 @@
+
 /* -------------------------------  index_nav ------------------------------- */
 #nav {
     z-index: 102;
@@ -28,7 +29,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      max-width: 880px;
+      max-width: 848px;
       margin: 0 auto;
       padding: 0 8vw;
 }
@@ -101,16 +102,11 @@
     width: 28px;
 }
 .post-header {
-    z-index: 102;
     width: 100%;
     margin-bottom: 20px;
     padding: 2px 0;
-    background-color: rgba(255,255,255,.9);
-    backdrop-filter: saturate(176%) blur(10px);
-    -webkit-backdrop-filter: saturate(176%) blur(10px);
-    box-shadow: 0 1px 2px -1px rgba(38, 38, 38, 0.1);
-    position: fixed;
-    top: 0px;
+    position: absolute;
+    top: 40px;
 }
 .post-back
 {
@@ -121,21 +117,23 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    max-width: 880px;
+    max-width: 848px;
 }
 .post-header .go-home
 {
     display: block;
-    padding: 8px 18px;
+    padding: 10px 18px 6px;
+    border: 1px solid #eee;
     border-radius: 12px;
-    margin: 2px 0 2px -16px;
+    margin: 2px 0 2px;
+    background: var(--white-color);
     transition: background ease-in-out .5s;
 }
-/* .post-header .go-home:hover
+.post-header .go-home:hover
 {
     background: var(--bg-color-1);
     transition: background ease-in-out .5s;
-} */
+}
 .post-header .go-home svg
 {
     transform: translateX(0);

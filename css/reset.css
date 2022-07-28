@@ -20,13 +20,14 @@ html {
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust:100%;
 }
+
 body {
     font-family: "Helvetica", -apple-system, "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
     word-wrap: break-word;
     word-break: break-all;
     /* Georgia, Cambria, "Times New Roman", charter, */
-  }
-    
+}
+
 img {
     pointer-events: none;
 }
@@ -95,37 +96,37 @@ select
 
 
 /* 全局::selection样式 */
- span::selection,
- th::selection, 
- tr::selection, 
- td::selection,
- h1::selection, 
- h2::selection, 
- h3::selection, 
- h4::selection, 
- h5::selection, 
- p::selection, 
- a::selection,
- section::selection {
+span::selection,
+th::selection, 
+tr::selection, 
+td::selection,
+h1::selection, 
+h2::selection, 
+h3::selection, 
+h4::selection, 
+h5::selection, 
+p::selection, 
+a::selection,
+section::selection {
    background: var(--selection-color);
    color: #ffffff;
- }
+}
  
- P > span::selection, 
- u::selection, 
- code::selection,
- em::selection, 
- strong::selection {
+P > span::selection, 
+u::selection, 
+code::selection,
+em::selection, 
+strong::selection {
    background: var(--selection-color);
    color: #ffffff;
- }
- 
- .label-yellow::selection,
- .title::selection, 
- .post-date::selection,
- .post-except::selection,
- .post-main-title::selection,
- .post-meta::selection {
+}
+
+.label-yellow::selection,
+.title::selection, 
+.post-date::selection,
+.post-except::selection,
+.post-main-title::selection,
+.post-meta::selection {
    background: var(--selection-color);
    color: #ffffff;
- }
+}

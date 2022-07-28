@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
+    <link rel="alternate icon" type="image/ico" href="/images/favicon.ico">
+ 
+
+    <title>
+         Add-Customer 表单优化 ·  
+        YANNGIKI
+    </title>
+
+    <!-- CSS引用 -->
+    
+<link rel="stylesheet" href="/css/colors.css">
+
+    
+<link rel="stylesheet" href="/css/reset.css">
+
+    
+<link rel="stylesheet" href="/css/nav.css">
+
+    
+<link rel="stylesheet" href="/css/home.css">
+
+    
+<link rel="stylesheet" href="/css/postmd.css">
+
+    
+<link rel="stylesheet" href="/css/index.css">
+
+    
+<link rel="stylesheet" href="/css/about.css">
+
+    
+<link rel="stylesheet" href="/css/toc.css">
+
+
+
+    <!-- 引用iconfont Symbol -->
+    <script src="//at.alicdn.com/t/font_1136188_oqq48jgc1lf.js"></script>
+
+    <!-- 代码高亮引用 -->
+    
+<link rel="stylesheet" href="/css/a11y-dark.min.css">
+
+    
+<script src="/js/highlight.min.js"></script>
+
+    
+<script src="/js/highlightjs-line-numbers.js"></script>
+ 
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+    </script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+    <body>
+        
+            <div class="post-header">
+    <div class="post-back">
+        <a class="go-home local-trkey" href="">
+            <svg width="8" height="14" viewBox="0 0 8 14">
+                <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+        <!-- <a class="logo" href="/"><img  src="/images/logo.svg"></a> -->
+    </div>
+</div>
+        
+        <div class="paper">
+            <div class="paper-main">   
+                <script>
+  let postBack = document.getElementsByClassName('local-trkey')[0];
+  window.onload = function () {
+    postBack.href =  localStorage.getItem('trkey');
+    console.log ("lastURL:" + postBack.href)
+  }
+</script>
+
+<div class="post-main">
+
+    <div class="mini_toc">
+        <div class="toc_icn">
+          <span></span>
+          <span></span> 
+          <span></span>
+          <span></span>
+        </div>
+    </div> 
+
+    
+        <div class="post-main-title">
+            Add-Customer 表单优化
+        </div>
+        <div class="post-meta">
+            2018-05-22
+        </div>
+    
+    
+    
+
+
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%B9%E8%BF%9B"><span class="toc-text">改进</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-text">1. 联系方式的优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BF%A1%E6%81%AF%E5%85%B3%E8%81%94%E6%80%A7%E5%92%8C%E5%AD%97%E6%AE%B5%E7%AE%80%E5%8C%96"><span class="toc-text">2. 信息关联性和字段简化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A0%A1%E9%AA%8C%E6%8F%90%E7%A4%BA"><span class="toc-text">3. 校验提示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%85%B6%E5%AE%83%E6%94%B9%E8%BF%9B%E7%82%B9"><span class="toc-text">4. 其它改进点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-text">最后</span></a></li></ol>
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    
+    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1219) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+
+    window.addEventListener('resize', toc_show, false)
+
+ </script>
+    <div class="post-md">
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><strong>在测试填写这个表单时，发现有下面几个问题：</strong></p>
+<ol>
+<li>手机号、电话的填写被限制得过死；</li>
+<li>相似属性的信息没有放在一起；</li>
+<li>信息的阅读性混乱，文案长短相差有点大；</li>
+<li>校验出错提示不能明确告诉使用者如何解决，反而还容易造成误解；</li>
+<li>表单左右区域的空间利用的太拥挤，造成视觉上的压迫感；</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/page_origin.png" alt="page_origin"></p>
+<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><h2 id="1-联系方式的优化"><a href="#1-联系方式的优化" class="headerlink" title="1. 联系方式的优化"></a>1. 联系方式的优化</h2><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/contact_origin.png" alt="contact_origin"></p>
+<blockquote>
+<p>原产品方案对这两个字段的定义:</p>
+<p><strong>Mobile Number</strong> ：只能填写手机号码；<strong>Secondary Number</strong> ：填写其它联系号码，包括手机和固话</p>
+</blockquote>
+<ol>
+<li><p>比较难判断这是手机号码还是固话</p>
+<p>国外的手机号码可能会与固话是一样的位数，比较难判断这是否是手机号码。<br>比如加拿大，手机和固话都是10位数，类似格式647-348-XXXX，也就是填写后他们自己也可能不分清这是手机号码还是固话；所以比较难判断这是否是手机号码。</p>
+</li>
+<li><p>隐私问题，产品的字段定义这里必须要填写手机，毕竟国外对个人隐私比较注重，手机号并不是所有人都愿意提供给第三方的，避免接收到广告或造成信息泄露；</p>
+</li>
+</ol>
+<p>结论是，<strong>Mobile Number</strong>这里并不适合强制要求填写手机号码，更没有统一规则判断所填写的是否是真实的手机号码。</p>
+<p><em><strong>什么要填写联系号码？</strong></em></p>
+<p>对于提供服务的店铺来说，获取顾客的联系号码可能有以下的用途：</p>
+<ol>
+<li>联系客服确认预约；</li>
+<li>顾客回访，了解服务效果；</li>
+<li>给重要顾客提供优惠信息以及关系维护；</li>
+</ol>
+<p>而这些用途，邮件（国外有使用邮件交流的习惯）同样是可以达到目的，但相比打电话联系就缺乏时效性和关怀性。所以联系号码有它的存在意义，但并不是必要的。再加上鉴于隐私原因，顾客的个人手机也并不是必须要填写。</p>
+<p>根据这些，把<strong>Mobile Number</strong> 和<strong>Secondary Number</strong> 是可以统一整合成一项联系号码的录入，分为<strong>主要号码</strong>和<strong>次要号码</strong>，不需要像之前一样做这么明显的手机与固话划分。如下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/contact_imp.png" alt="contact_imp"></p>
+<h2 id="2-信息关联性和字段简化"><a href="#2-信息关联性和字段简化" class="headerlink" title="2. 信息关联性和字段简化"></a>2. 信息关联性和字段简化</h2><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/info_struct_origin.png" alt="info_struct_origin"></p>
+<ol>
+<li><p>在这个表单中，2（联系号码）和4（邮箱）都是属于个人的联系方式，根据格式塔的<strong>相似性</strong>原理，这两个作业联系方式的信息应该放在一起。每一项信息本身是有属性的，<strong>Birthday</strong>属于人的自然属性，联系号码和邮箱属于业务性属性，在信息展示时如果没有特别需要尽量不要穿插着放。</p>
+</li>
+<li><p>在不影响信息清晰传达的前提下，尽量减少不需要的文字。</p>
+<p>图中的 Mobile Number 、Secondary Number、Email Address、 Customer Note，文案过于累赘，简化不必要的单词，减少阅读的信息量，并且表单整体左右视觉可于拥挤，适当优化间距，提高信息的阅读性。</p>
+<p>具体如下图</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/info_struct_imp.png" alt="info_struct_imp"></p>
+<h2 id="3-校验提示"><a href="#3-校验提示" class="headerlink" title="3. 校验提示"></a>3. 校验提示</h2><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/verification_origin.png" alt="verification"></p>
+<p>添加顾客的时候<strong>Name</strong>、<strong>Phone</strong>、<strong>Email</strong>中共5个输入框，至少要填写任意一项。因为在创建或搜索顾客时，每一个顾客在数据库中至少需要一项可以做为识别和区分的信息。</p>
+<p>姓名、联系号码、邮箱都能作为顾客的识别信息，由于隐私问题，并不是所有顾客都愿意提供，因此没有办法固定某一项内容是必填，而只需要填写其中一个即可。</p>
+<p>但现在校验提醒的时候只针对了联系方式，这里就会容易让人误解成 Phone Number是必填项。</p>
+<p>由于针对其中某一项进行提示，，并且提示文案与该项的信息并不完全匹配，反而更会让人费解。</p>
+<p>下图是在<strong>校验提醒</strong>的方式上做的优化</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/verification_imp.png" alt="verification_imp"></p>
+<h2 id="4-其它改进点"><a href="#4-其它改进点" class="headerlink" title="4. 其它改进点"></a>4. 其它改进点</h2><p>视觉上有下面两点调整，大大提升表单了整体的阅读舒适性，减轻拥挤的表单内容带来的压迫感。</p>
+<ol>
+<li><p>表单间距</p>
+</li>
+<li><p>弹窗左右两边的Padding留白空间</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/space.png" alt="表单区域"></p>
+</li>
+</ol>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>看看修改前后的区别。</p>
+<blockquote>
+<p>有时候细节上的改变在肉眼上会比较难发现，但使用起来的却能让人察觉和体验到差别。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/customerForm/lastCont.png" alt="before after"></p>
+<br>
+
+<section class="desc-page-bottom">📮 到底了</section>
+    </div>
+
+    <footer class="f-cf">
+        
+          <a href="/posts/79ed9cfc/" class="link f-fl">
+            <span class="arrow"> ←</span>
+            移动收银
+          </a>
+        
+        
+    </footer>
+</div>
+            </div>
+        </div>
+    </body>
+</html>
