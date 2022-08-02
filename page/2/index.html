@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -181,10 +185,10 @@
 
 
 <script>
-
     let postTitle = document.getElementsByClassName('post-title');
     let postIMG = document.getElementsByClassName('post-imgwrap');
-    let postBack = document.getElementsByClassName('local-trkey')[0];
+    let goBack = document.getElementsByClassName('local-trkey')[0];
+
 
     //把当前页面的URL存放到localstorage
     function getlastURL() {
@@ -193,9 +197,9 @@
         console.log (lastURL)
     }
 
-    //监听文章列表的可点击元素，并执行函数
+    //文章列表可交互元素绑定点击元素，并执行函数
     for( i= 0; i < postTitle.length; i++ ) {
-        postTitle[i].addEventListener ('click', getlastURL, false);
+        postTitle[i].onclick = getlastURL;
     }
 
     for( i= 0; i < postIMG.length; i++ ) {
@@ -203,11 +207,11 @@
     }
 
     //在目标页面加载时，把localstorage的值赋给目标对象（该段放在目标页面 post.ejs 上执行）
-    // window.onload = function () {
-    //     postBack.href =  localStorage.getItem('trkey');
-    //     console.log ("lastURL:" + postBack.href)
+    // document.addEventListener("DOMContentLoaded", pushURL, false);
+    // function pushURL() {
+    //     goBack.href = localStorage.getItem('trkey');
+    //     console.log ("lastURL:" + goBack.href)
     // }
-    
 </script>
             </div>
         </div>
@@ -228,4 +232,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

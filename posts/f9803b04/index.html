@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -58,24 +62,7 @@
         
         <div class="paper">
             <div class="paper-main">   
-                <script>
-  let postBack = document.getElementsByClassName('local-trkey')[0];
-  window.onload = function () {
-    postBack.href =  localStorage.getItem('trkey');
-    console.log ("lastURL:" + postBack.href)
-  }
-</script>
-
-<div class="post-main">
-
-    <div class="mini_toc">
-        <div class="toc_icn">
-          <span></span>
-          <span></span> 
-          <span></span>
-          <span></span>
-        </div>
-    </div> 
+                <div class="post-main">
 
     
         <div class="post-main-title">
@@ -86,7 +73,36 @@
         </div>
     
     
-    
+    <div class="post-md">
+        <p>A New Post templates_eg1</p>
+
+    </div>
+
+    <footer class="f-cf">
+        
+          <a href="/posts/4a17b156/" class="link f-fl">
+            <span class="arrow"> ←</span>
+            Hello World
+          </a>
+        
+        
+          <a href="/posts/24f58410/" class="link f-fr">
+            嘉佳智能
+            <span class="arrow"> → </span>
+          </a>
+        
+    </footer>
+</div>
+
+<div class="mini_toc">
+  <div class="toc_icn">
+    <span></span>
+    <span></span> 
+    <span></span>
+    <span></span>
+  </div>
+</div> 
+
 
 
     <div id="toc">
@@ -98,8 +114,9 @@
     var triggle = document.getElementsByClassName('mini_toc');
     var toc = document.getElementById('toc');
     var line = document.querySelectorAll('.toc_icn span');
+    var postMain = document.getElementsByClassName('post-main');
     
-    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
+    var key = false;  // 映射toc的显示和隐藏，并作为真否判断条件，false == toc隐藏
 
     //控制toc的出现或隐藏
     function switch_toc() {
@@ -123,9 +140,9 @@
 
     triggle[0].addEventListener('click', toc_icn_state, false);
 
-    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    // >1132px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
     function toc_show(){
-        if((document.body.clientWidth+15) > 1219) {
+        if((document.body.clientWidth+15) > 1132) {
             toc.style.display = "block";
             key = true;
             for(let i=0; i < line.length; i++){
@@ -133,30 +150,33 @@
             }
         }
     }
-
     window.addEventListener('resize', toc_show, false)
 
+
+    // <1132px toc出现后，点击外围区域可关闭
+    function toc_close(){
+        if((document.body.clientWidth) < 1132 ) {
+            toc.style.display = "none";
+            key = false;
+            for(let i=0; i < line.length; i++){
+                line[i].className='';
+            }
+        }
+    }
+    postMain[0].addEventListener('click', toc_close, false)
+
+    
+
  </script>
-    <div class="post-md">
-        <p>A New Post templates_eg1</p>
 
-    </div>
 
-    <footer class="f-cf">
-        
-          <a href="/posts/4a17b156/" class="link f-fl">
-            <span class="arrow"> ←</span>
-            Hello World
-          </a>
-        
-        
-          <a href="/posts/24f58410/" class="link f-fr">
-            嘉佳智能
-            <span class="arrow"> → </span>
-          </a>
-        
-    </footer>
-</div>
+<script src="/js/push-last-url.js"></script>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -176,4 +196,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -58,24 +62,7 @@
         
         <div class="paper">
             <div class="paper-main">   
-                <script>
-  let postBack = document.getElementsByClassName('local-trkey')[0];
-  window.onload = function () {
-    postBack.href =  localStorage.getItem('trkey');
-    console.log ("lastURL:" + postBack.href)
-  }
-</script>
-
-<div class="post-main">
-
-    <div class="mini_toc">
-        <div class="toc_icn">
-          <span></span>
-          <span></span> 
-          <span></span>
-          <span></span>
-        </div>
-    </div> 
+                <div class="post-main">
 
     
         <div class="post-main-title">
@@ -86,57 +73,6 @@
         </div>
     
     
-    
-
-
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">设计的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">设计的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%95%8C%E9%99%90"><span class="toc-text">设计的界限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E4%BA%A7%E5%93%81"><span class="toc-text">了解产品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E6%8A%80%E6%9C%AF"><span class="toc-text">了解技术</span></a></li></ol></li></ol>
-    </div>
-
-
-<script type="text/javascript">
-    var triggle = document.getElementsByClassName('mini_toc');
-    var toc = document.getElementById('toc');
-    var line = document.querySelectorAll('.toc_icn span');
-    
-    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
-
-    //控制toc的出现或隐藏
-    function switch_toc() {
-        if(!key) {
-            toc.style.display = "block";
-            key = true;
-        }else {
-            toc.style.display = "none";
-            key = false;
-        } 
-    }
-
-    //目录icn的状态，每点击一次就切换，默认为css设置的状态
-    function toc_icn_state() {
-        for(let i=0; i < line.length; i++){
-            line[i].classList.toggle('op');
-        }
-    }
-
-    triggle[0].addEventListener('click', switch_toc, false);
-
-    triggle[0].addEventListener('click', toc_icn_state, false);
-
-    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
-    function toc_show(){
-        if((document.body.clientWidth+15) > 1219) {
-            toc.style.display = "block";
-            key = true;
-            for(let i=0; i < line.length; i++){
-                line[i].className='op';
-            }
-        }
-    }
-
-    window.addEventListener('resize', toc_show, false)
-
- </script>
     <div class="post-md">
         <h1 id="设计的理解"><a href="#设计的理解" class="headerlink" title="设计的理解"></a>设计的理解</h1><p>当说到设计的时候，应该会有好多人都会关注好看或不好看，比例是否协调、颜色搭配是否够好、动效是否够酷炫…… 还认为这对整个产品的作用很大，因为设计是否好看直接会影响到用户和客户对产品的第一印象，印象差的就会没有然后了。</p>
 <p>所以做设计就是要做出很新颖有趣、标新立异、能更多地在外观上令人愉悦甚至可以捕获人心的东西，还可以尽情地想像和表达……设计的关注点都在“形式”上，决策都以美观为标准，只要好看的都行，美观胜于一切。</p>
@@ -222,6 +158,90 @@
         
     </footer>
 </div>
+
+<div class="mini_toc">
+  <div class="toc_icn">
+    <span></span>
+    <span></span> 
+    <span></span>
+    <span></span>
+  </div>
+</div> 
+
+
+
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">设计的理解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">设计的作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%95%8C%E9%99%90"><span class="toc-text">设计的界限</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E4%BA%A7%E5%93%81"><span class="toc-text">了解产品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%86%E8%A7%A3%E6%8A%80%E6%9C%AF"><span class="toc-text">了解技术</span></a></li></ol></li></ol>
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    var postMain = document.getElementsByClassName('post-main');
+    
+    var key = false;  // 映射toc的显示和隐藏，并作为真否判断条件，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1132px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1132) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+    window.addEventListener('resize', toc_show, false)
+
+
+    // <1132px toc出现后，点击外围区域可关闭
+    function toc_close(){
+        if((document.body.clientWidth) < 1132 ) {
+            toc.style.display = "none";
+            key = false;
+            for(let i=0; i < line.length; i++){
+                line[i].className='';
+            }
+        }
+    }
+    postMain[0].addEventListener('click', toc_close, false)
+
+    
+
+ </script>
+
+
+<script src="/js/push-last-url.js"></script>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -241,4 +261,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

@@ -40,7 +40,8 @@
 .ui-design {
     display: grid;
     box-sizing: border-box;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+    /* min270px */
     grid-gap: 16px;
     margin-top: 24px;
 }

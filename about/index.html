@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -213,4 +217,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

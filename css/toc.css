@@ -10,7 +10,7 @@
     margin-bottom: 32px;
     display: none;
     background-color:rgba(255,255,255,0.96);
-    font-size:0.8rem;
+    font-size: 0.8rem;
     color:#afafaf;
     border-left: 1px solid #f0f0f0;
     overflow: scroll;
@@ -41,7 +41,7 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 560px) {
     #toc {
       font-size: .9em;
       width: 100%;
@@ -52,7 +52,7 @@
       padding-top: 100px;
     }
 }
-@media screen and (min-width: 601px) and (max-width: 1219px) {
+@media screen and (min-width: 561px) and (max-width: 1131px) {
     #toc{
     right: 0px;
     top: 0px;
@@ -62,7 +62,7 @@
     box-shadow: -10px 4px 6px -10px rgba(38,38,38,0.08);
     }
 }
-@media screen and (min-width: 1220px) {
+@media screen and (min-width: 1132px) {
     #toc{
     display: block; 
   }
@@ -93,7 +93,7 @@
   z-index: 1000;
   width: 36px;
   height: 36px;
-   /* border-radius: 100%; */
+   border-radius: 8px 0 0 8px;
   border: 1px solid #f0f0f0;
   background-color: var(--white-color);
   text-align: center; 
@@ -103,7 +103,7 @@
   cursor: pointer;
   box-shadow: 0 2px 8px -3px rgba(0,0,0,0.2);
 }
-@media screen and (min-width: 1220px) {
+@media screen and (min-width: 1132px) {
     .mini_toc{
     display: none;
   }

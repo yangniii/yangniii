@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -58,24 +62,7 @@
         
         <div class="paper">
             <div class="paper-main">   
-                <script>
-  let postBack = document.getElementsByClassName('local-trkey')[0];
-  window.onload = function () {
-    postBack.href =  localStorage.getItem('trkey');
-    console.log ("lastURL:" + postBack.href)
-  }
-</script>
-
-<div class="post-main">
-
-    <div class="mini_toc">
-        <div class="toc_icn">
-          <span></span>
-          <span></span> 
-          <span></span>
-          <span></span>
-        </div>
-    </div> 
+                <div class="post-main">
 
     
         <div class="post-main-title">
@@ -86,57 +73,6 @@
         </div>
     
     
-    
-
-
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="toc-text">背景介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%91%E6%88%98"><span class="toc-text">挑战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-text">做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA"><span class="toc-text">页面展示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
-    </div>
-
-
-<script type="text/javascript">
-    var triggle = document.getElementsByClassName('mini_toc');
-    var toc = document.getElementById('toc');
-    var line = document.querySelectorAll('.toc_icn span');
-    
-    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
-
-    //控制toc的出现或隐藏
-    function switch_toc() {
-        if(!key) {
-            toc.style.display = "block";
-            key = true;
-        }else {
-            toc.style.display = "none";
-            key = false;
-        } 
-    }
-
-    //目录icn的状态，每点击一次就切换，默认为css设置的状态
-    function toc_icn_state() {
-        for(let i=0; i < line.length; i++){
-            line[i].classList.toggle('op');
-        }
-    }
-
-    triggle[0].addEventListener('click', switch_toc, false);
-
-    triggle[0].addEventListener('click', toc_icn_state, false);
-
-    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
-    function toc_show(){
-        if((document.body.clientWidth+15) > 1219) {
-            toc.style.display = "block";
-            key = true;
-            for(let i=0; i < line.length; i++){
-                line[i].className='op';
-            }
-        }
-    }
-
-    window.addEventListener('resize', toc_show, false)
-
- </script>
     <div class="post-md">
         <h1 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h1><p>伊智OA（顾问SaaS）是公司内部销售顾问、运营顾问、和管理人员使用的工具，主要用于在与客户谈合作时能快速拟定合同和完成签约，利用数字化手段提升业务端录入客户、签发合同的效率；其次是做客户资源管理（包括构建公海客户和线索跟踪等客资管理功能）、实时的量化数据管理。对内部来说是一个提升合同签约效率和客户信息管理维护的工具。</p>
 <h1 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h1><section class="question">🤯 时间紧迫</section>
@@ -227,6 +163,9 @@
 </br>
 
 <section class="desc-page-bottom">📮 到底了</section>
+
+
+
     </div>
 
     <footer class="f-cf">
@@ -244,6 +183,90 @@
         
     </footer>
 </div>
+
+<div class="mini_toc">
+  <div class="toc_icn">
+    <span></span>
+    <span></span> 
+    <span></span>
+    <span></span>
+  </div>
+</div> 
+
+
+
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="toc-text">背景介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%91%E6%88%98"><span class="toc-text">挑战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-text">做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA"><span class="toc-text">页面展示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    var postMain = document.getElementsByClassName('post-main');
+    
+    var key = false;  // 映射toc的显示和隐藏，并作为真否判断条件，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1132px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1132) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+    window.addEventListener('resize', toc_show, false)
+
+
+    // <1132px toc出现后，点击外围区域可关闭
+    function toc_close(){
+        if((document.body.clientWidth) < 1132 ) {
+            toc.style.display = "none";
+            key = false;
+            for(let i=0; i < line.length; i++){
+                line[i].className='';
+            }
+        }
+    }
+    postMain[0].addEventListener('click', toc_close, false)
+
+    
+
+ </script>
+
+
+<script src="/js/push-last-url.js"></script>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -263,4 +286,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

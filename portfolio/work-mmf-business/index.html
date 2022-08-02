@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -78,18 +82,20 @@
         #nav {
             display: none;
         }
-        .post-main {
-            max-width: 100%;
+        @media screen and (min-width: 1060px) and (max-width: 1319px)  {
+            .post-main {
+                margin: -70px auto 24px;
+            }
         }
         .post-header {
-            width: auto;
+            width: auto !important;
         }
     </style>
 </head>
 
 <div class="post-header">
     <div class="post-back" style="padding: 0; margin:0">
-        <a class="go-home" href="javascript:history.back(-1)">
+        <a class="go-home local-trkey" href="">
             <svg width="8" height="14" viewBox="0 0 8 14">
                 <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -106,6 +112,22 @@
             <h1 id="设计体系是什么？"><a href="#设计体系是什么？" class="headerlink" title="设计体系是什么？"></a>设计体系是什么？</h1><p>–图–</p>
 <p><strong>设计体系</strong> 可以看作是一系列可以复用元素和设计模式的集合，比如常见的导航、tabs、图标、输入框、通知提示、时间选择，也包括动效、声音，以及对交互模式的定义等等。</p>
 <p>任何一个应用程序的可见可感觉的部分都由这些定义基础的元素组成。它们是由一套清晰的规范来指引和约束着设计，保持一致性，并且可以让各个组件组合起来，搭建任意的应用程序。<strong>设计体系</strong>的工作可以说是一个持续性学习、构建和演化的过程，没有终点也没有结束时间。</p>
+<a data-fancybox-trigger = "aa" href="">
+  <span >查看图片</span>
+</a>
+
+<div style="display:none">
+  <a data-fancybox="aa" target="_blank" rel="noopener" href="https://lipsum.app/id/60/1600x1200">
+    <img  src="https://lipsum.app/id/60/1600x1200" />
+  </a>
+  <a data-fancybox="aa" target="_blank" rel="noopener" href="https://lipsum.app/id/61/1600x1200">
+    <img class="rounded" src="https://lipsum.app/id/61/1600x1200" />
+  </a>
+  <a data-fancybox="aa" target="_blank" rel="noopener" href="https://lipsum.app/id/62/1600x1200">
+    <img class="rounded" src="https://lipsum.app/id/62/200x150" />
+  </a>
+</div>
+
 <h1 id="为什么需要设计体系？"><a href="#为什么需要设计体系？" class="headerlink" title="为什么需要设计体系？"></a>为什么需要设计体系？</h1><ul>
 <li><p><strong>设计价值</strong></p>
 <p>作为产品的一种通用设计语言，用于规范指导设计合作，避免设计上过渡造轮子，把更多的精力放在业务、体验、创新、创意等方面的工作。</p>
@@ -123,6 +145,27 @@
 </li>
 </ul>
 <h1 id="设计体系包括哪些内容？"><a href="#设计体系包括哪些内容？" class="headerlink" title="设计体系包括哪些内容？"></a>设计体系包括哪些内容？</h1><h2 id="方法论"><a href="#方法论" class="headerlink" title="方法论"></a>方法论</h2><p>我们先了解一个重要概念：[<strong>Atomic Design</strong> ][Atomic Design]。</p>
+<img data-fancybox="gallery" src="https://user-images.githubusercontent.com/9880101/56782314-296d2280-6819-11e9-92c5-1ebe4b838634.png"/>
+
+
+<!-- YouTube -->
+<a data-fancybox="video-gallery" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=z2X2HaTvkl8">
+  <img src="http://i3.ytimg.com/vi/z2X2HaTvkl8/hqdefault.jpg" width="200" height="150" />
+</a>
+
+<!-- YouTube custom start time -->
+<a data-fancybox="video-gallery" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dZRqB0JLizw&t=40s">
+  <img src="http://i3.ytimg.com/vi/dZRqB0JLizw/hqdefault.jpg" width="200" height="150" />
+</a>
+
+<!-- Vimeo -->
+<a data-fancybox="video-gallery" target="_blank" rel="noopener" href="https://vimeo.com/259411563">
+  <img src="https://f.vimeocdn.com/images_v6/lohp/video1_thumbnail.png" width="200" height="150" />
+</a>
+
+<p><img src="https://user-images.githubusercontent.com/9880101/56782314-296d2280-6819-11e9-92c5-1ebe4b838634.png" alt="atomic"></p>
+<p><img src="https://user-images.githubusercontent.com/9880101/56782314-296d2280-6819-11e9-92c5-1ebe4b838634.png" alt="atomic"></p>
+<p><img src="https://user-images.githubusercontent.com/9880101/56782314-296d2280-6819-11e9-92c5-1ebe4b838634.png" alt="atomic"></p>
 <p><img src="https://user-images.githubusercontent.com/9880101/56782314-296d2280-6819-11e9-92c5-1ebe4b838634.png" alt="atomic"></p>
 <h3 id="Atomic-Design"><a href="#Atomic-Design" class="headerlink" title="Atomic Design"></a>Atomic Design</h3><p>Atomic Design 用比喻类比一个系统的组成部分，从微观的角度把网页或系统拆分成<strong>Atoms、Molecules、Organisms、Templates、Pages</strong>，元素之间的不同排列组合可以产生不同的结果。</p>
 <p>对<strong>Atomic Design</strong>的理解，我更倾向于从<code>生物学</code>的角度来解释。</p>
@@ -277,37 +320,10 @@
 <p><strong>区分</strong></p>
 <p><strong>对比度</strong></p>
 <h3 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h3><p><img src="https://user-images.githubusercontent.com/9880101/57174499-9b291a00-6e72-11e9-8f9e-f30a9080fa2a.png" alt="Layout-L2"></p>
-<h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><p>业务功能优先、美观其次</p>
-<h4 id="显示适配"><a href="#显示适配" class="headerlink" title="显示适配"></a>显示适配</h4><p>1024、1280、1360、1440、1920、2560</p>
-<h4 id="布局方案"><a href="#布局方案" class="headerlink" title="布局方案"></a>布局方案</h4><h3 id="图标"><a href="#图标" class="headerlink" title="图标"></a>图标</h3><h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><h4 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h4><h4 id="设计技巧"><a href="#设计技巧" class="headerlink" title="设计技巧"></a>设计技巧</h4><h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><h4 id="比例"><a href="#比例" class="headerlink" title="比例"></a>比例</h4><h4 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h4><h4 id="默认图"><a href="#默认图" class="headerlink" title="默认图"></a>默认图</h4><h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><h3 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h3><h3 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h3><h3 id="主动与被动模式"><a href="#主动与被动模式" class="headerlink" title="主动与被动模式"></a>主动与被动模式</h3><h3 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h3><p><strong>反馈的类型</strong></p>
 <h1 id="文案"><a href="#文案" class="headerlink" title="文案"></a>文案</h1><p>文案，在产品设计中是最容易会被忽略的部分。文案可以分为<strong>专业性文案</strong>和<strong>通用性文案</strong>。</p>
 <p>专业性文案：业务产生的专业术语，比如金融行业中的”利率”、”CPI”，。</p>
 <p>通用性文案：已被普世化的术语，一说就能明白词语，比如”登录”、”扫一扫”、”结账”。</p>
 <p><a target="_blank" rel="noopener" href="https://www.lightningdesignsystem.com/assets/downloads/salesforce-voice-and-tone.pdf">Salesforce-Voice -and-Tone</a></p>
-<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><p><img src="https://user-images.githubusercontent.com/9880101/57175931-763da280-6e84-11e9-805a-66bf6c86cc10.png" alt="Components"></p>
-<p><strong>按钮 Button</strong></p>
-<p><strong>按钮选项卡 Button-Tap</strong></p>
-<p><strong>输入框 Input</strong></p>
-<p><strong>列表 List</strong></p>
-<p><strong>选项卡 Tab</strong></p>
-<p><strong>加载 Loading</strong></p>
-<p><strong>Dashboard</strong></p>
-<p><strong>Pagination</strong></p>
-<p><strong>下拉菜单 Dropdown Menu</strong></p>
-<p><strong>选择器 Selector</strong></p>
-<p><strong>提示 Alert</strong></p>
-<p><strong>对话框 dialog</strong></p>
-<p><strong>文本框 Textarea</strong></p>
-<p><strong>范围 Range</strong></p>
-<p><strong>进度条 Progress</strong></p>
-<p><strong>Radio</strong></p>
-<p><strong>Checkbox</strong></p>
-<p><strong>Checker</strong></p>
-<p><strong>Switch</strong></p>
-<p><strong>Badge</strong></p>
-<p><strong>Inline Help</strong></p>
-<p><strong>数字 Number</strong></p>
-<p><strong>日期与时间 Date</strong></p>
 <h1 id="Lesson-Learned"><a href="#Lesson-Learned" class="headerlink" title="Lesson Learned"></a>Lesson Learned</h1><ul>
 <li>做设计体系时，不要只停留做字体、颜色图标、input输入框、按钮、弹窗、布局等基础视觉和组件的设计，当然这些也是基础和重要的部分，不过这些设计是有一定的场景需要，我们更应该要根据实际需要而去设计。<ol>
 <li>思考一个系统或应用有哪些部分组成：基础的、与业务关联的。</li>
@@ -328,6 +344,13 @@
 
 
 
+<script src="/js/push-last-url.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -347,4 +370,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

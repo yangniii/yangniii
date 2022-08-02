@@ -8,8 +8,23 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 24px;
+    margin: 0 auto 24px;
     max-width: 768px;
+}
+@media screen and (min-width: 1132px) and (max-width: 1219px)  {
+    .post-main {
+        margin: 0 0 24px;
+    }
+}
+@media screen and (min-width: 1220px) and (max-width: 1319px)  {
+    .post-main {
+        margin: -70px 60px 24px;
+    }
+}
+@media screen and (min-width: 1320px)  {
+    .post-main {
+        margin: -70px auto 24px;
+    }
 }
 .post-main-title
 {

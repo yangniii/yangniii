@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -58,24 +62,7 @@
         
         <div class="paper">
             <div class="paper-main">   
-                <script>
-  let postBack = document.getElementsByClassName('local-trkey')[0];
-  window.onload = function () {
-    postBack.href =  localStorage.getItem('trkey');
-    console.log ("lastURL:" + postBack.href)
-  }
-</script>
-
-<div class="post-main">
-
-    <div class="mini_toc">
-        <div class="toc_icn">
-          <span></span>
-          <span></span> 
-          <span></span>
-          <span></span>
-        </div>
-    </div> 
+                <div class="post-main">
 
     
         <div class="post-main-title">
@@ -86,57 +73,6 @@
         </div>
     
     
-    
-
-
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E6%A6%82%E8%BF%B0"><span class="toc-text">背景概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E6%A1%88"><span class="toc-text">方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88A"><span class="toc-text">方案A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88B"><span class="toc-text">方案B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%9B%9E%E5%BD%92"><span class="toc-text">问题回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E5%92%8C%E5%90%AF%E5%8F%91"><span class="toc-text">思考和启发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%8C%96%E5%8A%9F%E8%83%BD%EF%BC%8C%E6%80%BB%E7%BB%93%E8%A7%84%E5%BE%8B%E5%92%8C%E6%A8%A1%E5%BC%8F"><span class="toc-text">抽象化功能，总结规律和模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1"><span class="toc-text">优先业务数据建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E6%8E%A8%E5%92%8C%E9%A2%84%E5%88%A4"><span class="toc-text">演推和预判</span></a></li></ol></li></ol>
-    </div>
-
-
-<script type="text/javascript">
-    var triggle = document.getElementsByClassName('mini_toc');
-    var toc = document.getElementById('toc');
-    var line = document.querySelectorAll('.toc_icn span');
-    
-    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
-
-    //控制toc的出现或隐藏
-    function switch_toc() {
-        if(!key) {
-            toc.style.display = "block";
-            key = true;
-        }else {
-            toc.style.display = "none";
-            key = false;
-        } 
-    }
-
-    //目录icn的状态，每点击一次就切换，默认为css设置的状态
-    function toc_icn_state() {
-        for(let i=0; i < line.length; i++){
-            line[i].classList.toggle('op');
-        }
-    }
-
-    triggle[0].addEventListener('click', switch_toc, false);
-
-    triggle[0].addEventListener('click', toc_icn_state, false);
-
-    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
-    function toc_show(){
-        if((document.body.clientWidth+15) > 1219) {
-            toc.style.display = "block";
-            key = true;
-            for(let i=0; i < line.length; i++){
-                line[i].className='op';
-            }
-        }
-    }
-
-    window.addEventListener('resize', toc_show, false)
-
- </script>
     <div class="post-md">
         <h1 id="背景概述"><a href="#背景概述" class="headerlink" title="背景概述"></a>背景概述</h1><p><img src="https://cdn.jsdelivr.net/gh/yangbe/imagestorage@master/img/personalizedMenu/banner.png" alt="banner"></p>
 <p>微信公众号平台提供了<strong>个性化菜单</strong>的相关接口，第三方开发者可以直接调取使用，可以根据关注者的标签、性别、地区、系统语言等条件自动匹配显示不同的菜单，以达到每种类型的用户在进入公众号时能快速触达与他们相关的菜单。比如我是一位男生用户，显示的菜单与女生用户的会不一样。</p>
@@ -300,6 +236,90 @@
         
     </footer>
 </div>
+
+<div class="mini_toc">
+  <div class="toc_icn">
+    <span></span>
+    <span></span> 
+    <span></span>
+    <span></span>
+  </div>
+</div> 
+
+
+
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E6%A6%82%E8%BF%B0"><span class="toc-text">背景概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E6%A1%88"><span class="toc-text">方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88A"><span class="toc-text">方案A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%A1%88B"><span class="toc-text">方案B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%9B%9E%E5%BD%92"><span class="toc-text">问题回归</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E5%92%8C%E5%90%AF%E5%8F%91"><span class="toc-text">思考和启发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%8C%96%E5%8A%9F%E8%83%BD%EF%BC%8C%E6%80%BB%E7%BB%93%E8%A7%84%E5%BE%8B%E5%92%8C%E6%A8%A1%E5%BC%8F"><span class="toc-text">抽象化功能，总结规律和模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E4%B8%9A%E5%8A%A1%E6%95%B0%E6%8D%AE%E5%BB%BA%E6%A8%A1"><span class="toc-text">优先业务数据建模</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E6%8E%A8%E5%92%8C%E9%A2%84%E5%88%A4"><span class="toc-text">演推和预判</span></a></li></ol></li></ol>
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    var postMain = document.getElementsByClassName('post-main');
+    
+    var key = false;  // 映射toc的显示和隐藏，并作为真否判断条件，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1132px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1132) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+    window.addEventListener('resize', toc_show, false)
+
+
+    // <1132px toc出现后，点击外围区域可关闭
+    function toc_close(){
+        if((document.body.clientWidth) < 1132 ) {
+            toc.style.display = "none";
+            key = false;
+            for(let i=0; i < line.length; i++){
+                line[i].className='';
+            }
+        }
+    }
+    postMain[0].addEventListener('click', toc_close, false)
+
+    
+
+ </script>
+
+
+<script src="/js/push-last-url.js"></script>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -319,4 +339,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

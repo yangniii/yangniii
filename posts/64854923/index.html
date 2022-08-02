@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -58,24 +62,7 @@
         
         <div class="paper">
             <div class="paper-main">   
-                <script>
-  let postBack = document.getElementsByClassName('local-trkey')[0];
-  window.onload = function () {
-    postBack.href =  localStorage.getItem('trkey');
-    console.log ("lastURL:" + postBack.href)
-  }
-</script>
-
-<div class="post-main">
-
-    <div class="mini_toc">
-        <div class="toc_icn">
-          <span></span>
-          <span></span> 
-          <span></span>
-          <span></span>
-        </div>
-    </div> 
+                <div class="post-main">
 
     
         <div class="post-main-title">
@@ -86,57 +73,6 @@
         </div>
     
     
-    
-
-
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%BC%8F"><span class="toc-text">关于模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-text">颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%89%B2"><span class="toc-text">主色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E8%89%B2"><span class="toc-text">辅助色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%89%B2"><span class="toc-text">基本色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E9%A2%9C%E8%89%B2%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">重新思考颜色的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">颜色作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E5%9F%BA%E7%A1%80%E8%A6%81%E7%B4%A0"><span class="toc-text">解构基础要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E5%8C%96%E9%A2%9C%E8%89%B2%EF%BC%8C%E5%8A%A8%E6%80%81%E6%94%B9%E5%8F%98%E8%89%B2%E5%80%BC"><span class="toc-text">语义化颜色，动态改变色值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2"><span class="toc-text">定义颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BE%B9"><span class="toc-text">描边</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93"><span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87"><span class="toc-text">图标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1"><span class="toc-text">投影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81"><span class="toc-text">状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#One-More-Thing"><span class="toc-text">One More Thing</span></a></li></ol>
-    </div>
-
-
-<script type="text/javascript">
-    var triggle = document.getElementsByClassName('mini_toc');
-    var toc = document.getElementById('toc');
-    var line = document.querySelectorAll('.toc_icn span');
-    
-    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
-
-    //控制toc的出现或隐藏
-    function switch_toc() {
-        if(!key) {
-            toc.style.display = "block";
-            key = true;
-        }else {
-            toc.style.display = "none";
-            key = false;
-        } 
-    }
-
-    //目录icn的状态，每点击一次就切换，默认为css设置的状态
-    function toc_icn_state() {
-        for(let i=0; i < line.length; i++){
-            line[i].classList.toggle('op');
-        }
-    }
-
-    triggle[0].addEventListener('click', switch_toc, false);
-
-    triggle[0].addEventListener('click', toc_icn_state, false);
-
-    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
-    function toc_show(){
-        if((document.body.clientWidth+15) > 1219) {
-            toc.style.display = "block";
-            key = true;
-            for(let i=0; i < line.length; i++){
-                line[i].className='op';
-            }
-        }
-    }
-
-    window.addEventListener('resize', toc_show, false)
-
- </script>
     <div class="post-md">
         <h1 id="关于模式"><a href="#关于模式" class="headerlink" title="关于模式"></a>关于模式</h1><iframe width="100%" height="440" src="//jsrun.net/bFWKp/embedded/result/dark" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
@@ -441,6 +377,90 @@
         
     </footer>
 </div>
+
+<div class="mini_toc">
+  <div class="toc_icn">
+    <span></span>
+    <span></span> 
+    <span></span>
+    <span></span>
+  </div>
+</div> 
+
+
+
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%A8%A1%E5%BC%8F"><span class="toc-text">关于模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-text">颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%89%B2"><span class="toc-text">主色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E8%89%B2"><span class="toc-text">辅助色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%89%B2"><span class="toc-text">基本色</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E6%80%9D%E8%80%83%E9%A2%9C%E8%89%B2%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">重新思考颜色的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">颜色作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%84%E5%9F%BA%E7%A1%80%E8%A6%81%E7%B4%A0"><span class="toc-text">解构基础要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E5%8C%96%E9%A2%9C%E8%89%B2%EF%BC%8C%E5%8A%A8%E6%80%81%E6%94%B9%E5%8F%98%E8%89%B2%E5%80%BC"><span class="toc-text">语义化颜色，动态改变色值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E9%A2%9C%E8%89%B2"><span class="toc-text">定义颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BE%B9"><span class="toc-text">描边</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E4%BD%93"><span class="toc-text">字体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87"><span class="toc-text">图标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%95%E5%BD%B1"><span class="toc-text">投影</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81"><span class="toc-text">状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#One-More-Thing"><span class="toc-text">One More Thing</span></a></li></ol>
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    var postMain = document.getElementsByClassName('post-main');
+    
+    var key = false;  // 映射toc的显示和隐藏，并作为真否判断条件，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1132px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1132) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+    window.addEventListener('resize', toc_show, false)
+
+
+    // <1132px toc出现后，点击外围区域可关闭
+    function toc_close(){
+        if((document.body.clientWidth) < 1132 ) {
+            toc.style.display = "none";
+            key = false;
+            for(let i=0; i < line.length; i++){
+                line[i].className='';
+            }
+        }
+    }
+    postMain[0].addEventListener('click', toc_close, false)
+
+    
+
+ </script>
+
+
+<script src="/js/push-last-url.js"></script>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -460,4 +480,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -78,18 +82,20 @@
         #nav {
             display: none;
         }
-        .post-main {
-            max-width: 100%;
+        @media screen and (min-width: 1060px) and (max-width: 1319px)  {
+            .post-main {
+                margin: -70px auto 24px;
+            }
         }
         .post-header {
-            width: auto;
+            width: auto !important;
         }
     </style>
 </head>
 
 <div class="post-header">
     <div class="post-back" style="padding: 0; margin:0">
-        <a class="go-home" href="javascript:history.back(-1)">
+        <a class="go-home local-trkey" href="">
             <svg width="8" height="14" viewBox="0 0 8 14">
                 <path d="M7 1L1 7l6 6" stroke="#000" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -113,6 +119,13 @@
 
 
 
+<script src="/js/push-last-url.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -132,4 +145,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>

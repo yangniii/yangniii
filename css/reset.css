@@ -23,13 +23,15 @@ html {
 
 body {
     font-family: "Helvetica", -apple-system, "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
+    -webkit-font-smoothing: antialiased;
     word-wrap: break-word;
     word-break: break-all;
     /* Georgia, Cambria, "Times New Roman", charter, */
 }
 
 img {
-    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 table {
@@ -116,7 +118,8 @@ P > span::selection,
 u::selection, 
 code::selection,
 em::selection, 
-strong::selection {
+strong::selection,
+li::selection {
    background: var(--selection-color);
    color: #ffffff;
 }

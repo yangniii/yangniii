@@ -36,6 +36,10 @@
     
 <link rel="stylesheet" href="/css/toc.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
+    />
 
 
     <!-- 引用iconfont Symbol -->
@@ -58,24 +62,7 @@
         
         <div class="paper">
             <div class="paper-main">   
-                <script>
-  let postBack = document.getElementsByClassName('local-trkey')[0];
-  window.onload = function () {
-    postBack.href =  localStorage.getItem('trkey');
-    console.log ("lastURL:" + postBack.href)
-  }
-</script>
-
-<div class="post-main">
-
-    <div class="mini_toc">
-        <div class="toc_icn">
-          <span></span>
-          <span></span> 
-          <span></span>
-          <span></span>
-        </div>
-    </div> 
+                <div class="post-main">
 
     
         <div class="post-main-title">
@@ -86,57 +73,6 @@
         </div>
     
     
-    
-
-
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E4%BB%B7%E5%80%BC"><span class="toc-text">产品价值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%97%E9%93%BA%E4%BB%B7%E5%80%BC"><span class="toc-text">店铺价值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E4%BB%B7%E5%80%BC"><span class="toc-text">平台价值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%88%86%E6%9E%90"><span class="toc-text">用户分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-amp-%E4%BC%98%E5%8C%96"><span class="toc-text">问题&amp;优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E9%97%AE%E9%A2%98"><span class="toc-text">流程问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8D%95%E6%B5%81%E7%A8%8B"><span class="toc-text">开单流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B"><span class="toc-text">增删改项目流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E9%97%AE%E9%A2%98"><span class="toc-text">交互问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%93%B6%E4%B8%BB%E9%A1%B5"><span class="toc-text">收银主页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8D%95%E4%B8%BB%E9%A1%B5%E9%9D%A2"><span class="toc-text">开单主页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%85%E6%94%AF%E4%BB%98%E8%AE%A2%E5%8D%95%E9%A1%B5"><span class="toc-text">待支付订单页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%BC%B9%E7%AA%97%E4%BA%A4%E4%BA%92%E5%92%8C%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98"><span class="toc-text">部分弹窗交互和设计问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-text">功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">设计的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">重构的设计原则</span></a></li></ol></li></ol>
-    </div>
-
-
-<script type="text/javascript">
-    var triggle = document.getElementsByClassName('mini_toc');
-    var toc = document.getElementById('toc');
-    var line = document.querySelectorAll('.toc_icn span');
-    
-    var key = false;  // 映射toc的显示和隐藏，false == toc隐藏
-
-    //控制toc的出现或隐藏
-    function switch_toc() {
-        if(!key) {
-            toc.style.display = "block";
-            key = true;
-        }else {
-            toc.style.display = "none";
-            key = false;
-        } 
-    }
-
-    //目录icn的状态，每点击一次就切换，默认为css设置的状态
-    function toc_icn_state() {
-        for(let i=0; i < line.length; i++){
-            line[i].classList.toggle('op');
-        }
-    }
-
-    triggle[0].addEventListener('click', switch_toc, false);
-
-    triggle[0].addEventListener('click', toc_icn_state, false);
-
-    // >1180px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
-    function toc_show(){
-        if((document.body.clientWidth+15) > 1219) {
-            toc.style.display = "block";
-            key = true;
-            for(let i=0; i < line.length; i++){
-                line[i].className='op';
-            }
-        }
-    }
-
-    window.addEventListener('resize', toc_show, false)
-
- </script>
     <div class="post-md">
         <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>移动收银是提供给美业店铺营业SaaS服务的一部分，是现有桌面Web平台收银在移动场景下的补充，一套集商品、服务收银、开卡充值、购买赠送优惠券和疗程、还款等服务的系统。</p>
 <ul>
@@ -478,6 +414,90 @@
         
     </footer>
 </div>
+
+<div class="mini_toc">
+  <div class="toc_icn">
+    <span></span>
+    <span></span> 
+    <span></span>
+    <span></span>
+  </div>
+</div> 
+
+
+
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E4%BB%B7%E5%80%BC"><span class="toc-text">产品价值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%97%E9%93%BA%E4%BB%B7%E5%80%BC"><span class="toc-text">店铺价值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E4%BB%B7%E5%80%BC"><span class="toc-text">平台价值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E5%88%86%E6%9E%90"><span class="toc-text">用户分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98-amp-%E4%BC%98%E5%8C%96"><span class="toc-text">问题&amp;优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E9%97%AE%E9%A2%98"><span class="toc-text">流程问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8D%95%E6%B5%81%E7%A8%8B"><span class="toc-text">开单流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B"><span class="toc-text">增删改项目流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E4%BA%92%E9%97%AE%E9%A2%98"><span class="toc-text">交互问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%93%B6%E4%B8%BB%E9%A1%B5"><span class="toc-text">收银主页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8D%95%E4%B8%BB%E9%A1%B5%E9%9D%A2"><span class="toc-text">开单主页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%85%E6%94%AF%E4%BB%98%E8%AE%A2%E5%8D%95%E9%A1%B5"><span class="toc-text">待支付订单页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%BC%B9%E7%AA%97%E4%BA%A4%E4%BA%92%E5%92%8C%E8%AE%BE%E8%AE%A1%E9%97%AE%E9%A2%98"><span class="toc-text">部分弹窗交互和设计问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD"><span class="toc-text">功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">设计的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E6%9E%84%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-text">重构的设计原则</span></a></li></ol></li></ol>
+    </div>
+
+
+<script type="text/javascript">
+    var triggle = document.getElementsByClassName('mini_toc');
+    var toc = document.getElementById('toc');
+    var line = document.querySelectorAll('.toc_icn span');
+    var postMain = document.getElementsByClassName('post-main');
+    
+    var key = false;  // 映射toc的显示和隐藏，并作为真否判断条件，false == toc隐藏
+
+    //控制toc的出现或隐藏
+    function switch_toc() {
+        if(!key) {
+            toc.style.display = "block";
+            key = true;
+        }else {
+            toc.style.display = "none";
+            key = false;
+        } 
+    }
+
+    //目录icn的状态，每点击一次就切换，默认为css设置的状态
+    function toc_icn_state() {
+        for(let i=0; i < line.length; i++){
+            line[i].classList.toggle('op');
+        }
+    }
+
+    triggle[0].addEventListener('click', switch_toc, false);
+
+    triggle[0].addEventListener('click', toc_icn_state, false);
+
+    // >1132px,处理窗口改变大小时，强制让toc出现； 开关变为x，className控制开关隐藏
+    function toc_show(){
+        if((document.body.clientWidth+15) > 1132) {
+            toc.style.display = "block";
+            key = true;
+            for(let i=0; i < line.length; i++){
+                line[i].className='op';
+            }
+        }
+    }
+    window.addEventListener('resize', toc_show, false)
+
+
+    // <1132px toc出现后，点击外围区域可关闭
+    function toc_close(){
+        if((document.body.clientWidth) < 1132 ) {
+            toc.style.display = "none";
+            key = false;
+            for(let i=0; i < line.length; i++){
+                line[i].className='';
+            }
+        }
+    }
+    postMain[0].addEventListener('click', toc_close, false)
+
+    
+
+ </script>
+
+
+<script src="/js/push-last-url.js"></script>
+ 
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<script src="/js/fancy-box.js"></script>
+ 
             </div>
         </div>
     </body>
@@ -497,4 +517,18 @@
     hljs.initLineNumbersOnLoad();
 </script>
 
+<script>
+    function setImgAtt() {
+    let allIMG = document.getElementsByTagName('img');
+    for (let i = 0; i < allIMG.length; i++) {
+            allIMG[i].setAttribute('draggable', 'false');
+        }
+    }   
+    document.addEventListener('DOMContentLoaded', setImgAtt, false)
+
+    document.oncontextmenu = function (e) {
+        return false
+    }
+
+</script>
 </html>
